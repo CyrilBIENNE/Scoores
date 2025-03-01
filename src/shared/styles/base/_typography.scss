@@ -1,0 +1,122 @@
+@use 'variables' as *;
+body {
+  font-size: 18px;
+  line-height: 28px;
+  color: $blue-2;
+}
+/* prettier-ignore */
+input, textarea, button, select {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+}
+textarea {
+  font-family: inherit;
+}
+a {
+  color: $color-link;
+}
+
+h1,
+.h1 {
+  font-size: 28px;
+  line-height: 38px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: $color-main;
+}
+
+h2,
+.h2 {
+  font-size: 24px;
+  line-height: 34px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: $blue-2;
+  scroll-margin-top: 80px; /* readjust link anchor target */
+}
+
+h3,
+.h3 {
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: $blue-6;
+  scroll-margin-top: 80px; /* readjust link anchor target */
+}
+
+h4,
+h5,
+h6,
+.h4,
+.h5,
+.h6 {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.h4,
+h4 {
+  color: $blue-7;
+}
+.text-center {
+  text-align: center;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+.inverted {
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  a,
+  strong {
+    color: #fff;
+  }
+}
+
+input::placeholder {
+  font-size: 14px;
+  color: $gray4;
+  opacity: 1;
+  text-align: left;
+}
+.uppercase_bold {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $color-main;
+}
+.overline {
+  font-weight: 400;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+.body16 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+.headnote {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.italic {
+  font-style: italic;
+}
+.strong {
+  font-weight: 700;
+}
+.footnote {
+  font-size: 12px;
+  line-height: 22px;
+}
+
+.grey6 {
+  color: $gray6;
+}

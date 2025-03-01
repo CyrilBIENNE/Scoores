@@ -1,0 +1,40 @@
+{
+  "name": "Shootout",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "clean": "prettier --write ./src"
+  },
+  "rules": {
+    "react/no-is-mounted": "off"
+  },
+  "dependencies": {
+    "next": "15.1.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "use-sound": "^5.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.7",
+    "postcss": "^8",
+    "sass": "^1.85.1",
+    "tailwindcss": "^3.4.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "^19.0.3",
+      "@types/react-dom": "^19.0.2"
+    }
+  }
+}

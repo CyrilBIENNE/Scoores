@@ -1,0 +1,36 @@
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      margin: 0.5rem;
+      a {
+        color: $color-text;
+        text-decoration: none;
+        &:hover {
+          color: #000;
+        }
+      }
+    }
+  }
+}
+
+.app {
+  display: flex;
+  align-items: center;
+
+  &:hover > * {
+    color: $color-red;
+  }
+
+  &:active {
+    transform: scale(0.9);
+    color: #777;
+    border-color: #777;
+  }
+}

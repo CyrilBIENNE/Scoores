@@ -1,0 +1,53 @@
+.header {
+  width: 100%;
+  background: rgba(24, 65, 90, 0.5);
+  padding: 12px 24px;
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  box-shadow: 0 2px 4px rgba(60, 60, 60, 0.2);
+  z-index: 10;
+  position: sticky;
+  height: $header-height;
+}
+.logo {
+  height: 23px;
+}
+.icons {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: #999;
+  line-height: 0;
+  a {
+    color: #999;
+  }
+  cursor: pointer;
+  > *:hover {
+    color: $blue-2;
+    a {
+      color: $blue-2;
+    }
+  }
+}
+.wrapper {
+  padding: 24px 24px 0;
+  font-size: 18px;
+  line-height: 24px;
+  color: $blue-2;
+  min-height: 70px;
+  @media (min-width: $tablet-min-width) {
+    padding: 0;
+    display: flex;
+
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+@media (min-width: $tablet-min-width) {
+  .social {
+    display: none;
+  }
+}

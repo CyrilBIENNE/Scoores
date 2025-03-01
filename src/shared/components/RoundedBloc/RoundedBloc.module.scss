@@ -1,0 +1,32 @@
+.timeBlock {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 15px;
+  border: solid 5px #fff;
+  border-radius: 120px;
+  background-color: white;
+  color: #333;
+  &[data-alert='true'] {
+    color: red;
+  }
+
+  &[data-is-ended='true'] {
+    color: red;
+  }
+
+  &[data-size='lg'] {
+    font-size: 56px;
+    padding: 1rem 1.1rem;
+  }
+  &[data-size='md'] {
+    font-size: 24px;
+    padding: 0.3em 0.7em;
+  }
+}
+
+.time {
+  display: block;
+  padding-left: 12px;
+}

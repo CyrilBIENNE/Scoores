@@ -1,0 +1,121 @@
+@use 'variables' as *;
+
+body {
+  background-color: #fbfdff;
+  overflow-x: hidden;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+.mt-12 {
+  margin-top: 12px;
+}
+.mt-24 {
+  margin-top: 24px;
+}
+.mt-48 {
+  margin-top: 48px;
+}
+.mb-0 {
+  margin-bottom: 0;
+}
+.mb-12 {
+  margin-bottom: 12px;
+}
+.mb-24 {
+  margin-bottom: 24px;
+}
+.mb-48 {
+  margin-bottom: 48px;
+}
+
+hr {
+  margin: 12px 0 24px;
+  border-top: 1px solid $gray2;
+}
+
+main {
+  min-height: calc(100vh - $header-height);
+  @media (min-width: $header-height-mobile) {
+    min-height: calc(100vh - 70px);
+  }
+}
+
+.content {
+  max-width: 100%;
+  position: relative;
+  padding: 24px 12px;
+
+  @media (min-width: $tablet-min-width) {
+    padding: 24px;
+  }
+
+  @media (min-width: $desktop-min-width) {
+    max-width: 1008px;
+    margin: 0 auto;
+  }
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  > * {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    > * {
+      flex: 1;
+      padding: 0 12px;
+    }
+  }
+}
+
+.card-24 {
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: $shadow-close;
+  border: 1px solid $gray3;
+  padding: 24px;
+}
+.card-48 {
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: $shadow-close;
+  border: 1px solid $gray3;
+  padding: 24px;
+  @media (min-width: $tablet-min-width) {
+    padding: 48px;
+  }
+}
+
+.flex-12 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  > * {
+    flex: 1;
+  }
+}
+sup {
+  font-size: 70%;
+  vertical-align: super;
+}
+
+.hide-mobile {
+  @media (max-width: $tablet-min-width) {
+    display: none;
+  }
+}
+.hide-desktop {
+  @media (min-width: $tablet-min-width) {
+    display: none;
+  }
+}

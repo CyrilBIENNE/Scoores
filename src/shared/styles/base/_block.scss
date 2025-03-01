@@ -1,0 +1,17 @@
+@use 'variables' as *;
+
+[data-block-fullwidth='true'] {
+  display: block;
+  width: 100%;
+  max-width: none !important;
+  position: relative;
+
+  & > * {
+    max-width: $content-min-width !important;
+  }
+
+  @media (min-width: $content-max-width-width-padding) {
+    padding-left: $spacing-base;
+    padding-right: $spacing-base;
+  }
+}

@@ -1,0 +1,41 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+/* prettier-ignore */
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, button, input, select, textarea, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* prettier-ignore */
+footer, header, nav, section, main {
+  display: block;
+}
+
+ul {
+  padding-left: 30px;
+  margin-top: 0;
+}
+ol {
+  padding-left: 42px;
+  margin-top: 0;
+}
+
+body {
+  line-height: 1;
+}
+a {
+  text-decoration: none;
+}
+
+/* prettier-ignore */
+button, input, select, textarea {
+  background-color: transparent;
+  outline: none;
+  border: 0;
+}

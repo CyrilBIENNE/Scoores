@@ -1,0 +1,63 @@
+.params {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  margin: auto;
+  max-width: 900px;
+  min-height: 100vh;
+}
+
+.shootout {
+  position: relative;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  height: calc(100vh - $header-height);
+}
+
+.sound {
+  position: absolute;
+  z-index: 9;
+  top: calc($header-height + 10px);
+  right: 10px;
+}
+.zones {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  height: 100%;
+}
+
+.middle {
+  position: relative;
+  z-index: 5;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.totalPause {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: white;
+}
