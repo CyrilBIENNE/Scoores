@@ -1,4 +1,4 @@
-.params {
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,8 +6,8 @@
   gap: 10px;
   height: 100%;
   margin: auto;
-  max-width: 900px;
-  min-height: 100vh;
+  max-width: 300px;
+  min-height: calc(100vh - $header-height);
 }
 
 .shootout {
@@ -40,6 +40,7 @@
   position: relative;
   z-index: 5;
   top: 50%;
+  flex-wrap: wrap;
   transform: translateY(-50%);
   display: flex;
   align-items: center;
@@ -49,6 +50,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .chrono {
+    display: inline-block;
+    width: 52px;
+    margin-left: 6px;
   }
 }
 

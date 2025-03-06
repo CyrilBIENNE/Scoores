@@ -1,0 +1,19 @@
+.loader {
+  margin-left: 10px;
+  animation: load8 1s infinite linear;
+  &[data-white='true'] path:first-child {
+    opacity: 0.2;
+  }
+  &:not([data-white='true']) path:last-child {
+    fill: var(--color-main);
+  }
+}
+
+@keyframes load8 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

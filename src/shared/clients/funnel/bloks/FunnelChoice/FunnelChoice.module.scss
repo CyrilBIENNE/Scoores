@@ -1,0 +1,74 @@
+.choiceButton {
+  display: flex;
+  background: $color-white;
+  width: 100%;
+  min-height: 56px;
+  margin-bottom: 16px;
+  padding: 18px 16px 14px;
+  border-radius: 4px;
+  box-shadow: $shadow-close;
+  border: 1px solid $color-white;
+  justify-content: center;
+  line-height: 18px;
+  transition-duration: 150ms;
+  cursor: pointer;
+  border: 1px solid $gray3;
+  p {
+    width: 100%;
+  }
+  &:hover {
+    box-shadow: $shadow-middle;
+  }
+  &[data-selected='true'] {
+    color: var(--color-main);
+    border: 1px solid var(--color-main);
+    font-weight: bold;
+  }
+  @media (min-width: $tablet-min-width) {
+    width: fit-content;
+  }
+
+  .textBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.multiInput {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  > div {
+    width: 100%;
+  }
+  @media (max-width: $desktop-min-width) {
+    &[data-mobile-double='true'] {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      > div {
+        width: calc(50% - 10px);
+        margin-right: 20px;
+        &:nth-child(2n) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  @media (min-width: $desktop-min-width) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    &[data-desktop-grow='true'] {
+      > div {
+        width: 100%;
+      }
+    }
+    > div {
+      width: fit-content;
+      padding: 16px 24px;
+      margin-right: 12px;
+    }
+  }
+}

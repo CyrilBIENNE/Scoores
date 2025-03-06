@@ -32,6 +32,14 @@
     opacity: 0.2;
     padding: 12px 6px;
   }
+  .timer {
+    position: absolute;
+    z-index: 9;
+    font-size: 14px;
+    color: #fff;
+    opacity: 0.3;
+    right: 5;
+  }
 
   &[data-active='false'] {
     .bg {
@@ -42,11 +50,17 @@
     }
   }
   &[data-color='blue'] {
+    .timer {
+      top: 0;
+    }
     .c {
       background-color: $color-blue;
     }
   }
   &[data-color='red'] {
+    .timer {
+      bottom: 0;
+    }
     .player {
       bottom: 0;
     }
@@ -84,10 +98,11 @@
   bottom: 0;
   background-color: rgba(255, 0, 0, 0.4);
 }
+
 .action {
   margin-bottom: -5px;
   line-height: 0;
-  padding: 12px;
+  padding: 6px;
   color: #fff;
   border: solid 5px #fff;
   border-radius: 100%;

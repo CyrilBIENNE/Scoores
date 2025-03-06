@@ -1,0 +1,83 @@
+.item {
+  width: 100%;
+  padding: 12px 24px;
+  color: $gray8;
+  cursor: pointer;
+  .name {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .contents {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .search {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    flex-direction: column;
+    margin: auto;
+
+    & > div {
+      flex: 1;
+    }
+
+    .buttonList {
+      display: flex;
+      gap: 12px;
+      height: 50px;
+      justify-content: space-between;
+      width: 100%;
+
+      @media (min-width: $tablet-min-width) {
+        flex-direction: row;
+        justify-content: start;
+      }
+    }
+    .input {
+      min-width: 250px;
+      border: 1px solid $gray10;
+      border-radius: 4px;
+      background-color: $color-white;
+
+      padding: 0 24px 0 24px;
+      @media (min-width: $tablet-min-width) {
+        padding: 0 12px 0 12px;
+      }
+    }
+    .btnAddr {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-left: 5px !important;
+      }
+      p {
+        margin-left: 13px;
+        color: $color-main;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    height: 24px;
+  }
+  &:hover {
+    color: var(--color-main);
+    background-color: $blue-10;
+  }
+}
+
+.sublabel {
+  color: $gray6;
+  font-size: 14px;
+}

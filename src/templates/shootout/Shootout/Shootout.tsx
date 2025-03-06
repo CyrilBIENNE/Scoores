@@ -4,20 +4,19 @@ import { useEffect, useState } from 'react'
 import styles from '../ShootoutGame.module.scss'
 import Pause from '@/icons/pause'
 import Play from '@/icons/play'
-import { secondesToMinutes } from '@/utils/secondesToMinutes'
+import { secondesToMinutes } from '@/utils/format/secondesToMinutes'
 import useShootout from '../providers/useShootout'
-import { ShootoutConfig, ShootoutGamePlayer } from '../providers/Shootout.type'
+import { ShootoutGamePlayer } from '../providers/Shootout.type'
 import Zone from './blocs/Zone/Zone'
 import ZoneClient from './blocs/Zone/Zone.client'
 import useSound from 'use-sound'
 import GameReport from './blocs/GameReport/GameReport'
 import RoundedBloc from '@/components/RoundedBloc/RoundedBloc'
-import { shootoutConfig } from '../providers/default.config'
+import { shootoutConfig } from '../default.config'
+import { ShootoutGameConfig } from './Shootout.type'
 
 type Props = {
-  config?: ShootoutConfig
-  namePlayer1?: string
-  namePlayer2?: string
+  config: ShootoutGameConfig
 }
 
 enum SOUNDS {
@@ -27,29 +26,28 @@ enum SOUNDS {
   endGame = 'endGame',
 }
 
-export default function Shootout({ config, namePlayer1, namePlayer2 }: Props) {
-  if (!config) config = shootoutConfig
+export default function Shootout({ config }: Props) {
   const [isMatchEnded, setIsMatchEnded] = useState(false)
-  const [totalTime, setTotalTime] = useState(config.S_TotalTime)
-  const [localTime, setLocalTime] = useState(config.S_LocalTime1)
+  const [totalTime, setTotalTime] = useState(config.totalTime)
+  const [localTime, setLocalTime] = useState(config.localTime1)
   const [isLocalPause, setIsLocalPause] = useState(true)
   const [isTotalPause, setIsTotalPause] = useState(true)
-  const [maxLocalTime, setMaxLocalTime] = useState(config.S_LocalTime1)
-  const [currentShotTime, setCurrentShotTime] = useState(config.S_LocalTime1)
+  const [maxLocalTime, setMaxLocalTime] = useState(config.localTime1)
+  const [currentShotTime, setCurrentShotTime] = useState(config.localTime1)
   const [currentPlayer, setCurrentPlayer] = useState<ShootoutGamePlayer | undefined>(undefined)
   const [timestamp, setTimestamp] = useState<number | undefined>(undefined)
-  const { isMute, setIsGameInProgress, isGameInProgress, isLoading } = useShootout()
+  const { isMute, setIsGameInProgress, isLoading } = useShootout()
 
   const [player1, setPlayer1] = useState<ShootoutGamePlayer>({
     number: 1,
-    name: namePlayer1 ?? 'Joueur 1',
+    name: config.name1 ?? 'Player 1',
     shots: 0,
     turns: 0,
     totalTime: 0,
   })
   const [player2, setPlayer2] = useState<ShootoutGamePlayer>({
     number: 2,
-    name: namePlayer2 ?? 'Joueur 2',
+    name: config.name2 ?? 'Player 2',
     shots: 0,
     turns: 0,
     totalTime: 0,
@@ -110,7 +108,6 @@ export default function Shootout({ config, namePlayer1, namePlayer2 }: Props) {
   function onChangePlayer(player: ShootoutGamePlayer) {
     manageTimestamp()
     setCurrentPlayer(player)
-    setIsGameInProgress(true)
   }
 
   const onNewShot = () => {
@@ -132,6 +129,11 @@ export default function Shootout({ config, namePlayer1, namePlayer2 }: Props) {
   }
 
   useEffect(() => {
+    setIsGameInProgress(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
     if (!currentPlayer) return
     onNewShot()
     currentPlayer.turns++
@@ -146,7 +148,7 @@ export default function Shootout({ config, namePlayer1, namePlayer2 }: Props) {
 
     const timer = setInterval(() => {
       setLocalTime((prev) => {
-        if (prev == config.S_AlertLocalTime + 1) playSound(SOUNDS.localTimeAlert)
+        if (prev == shootoutConfig.S_AlertLocalTime + 1) playSound(SOUNDS.localTimeAlert)
         if (prev == 1) playSound(SOUNDS.endLocalTime)
 
         return prev - 1
@@ -161,21 +163,14 @@ export default function Shootout({ config, namePlayer1, namePlayer2 }: Props) {
     const timerTotal = setInterval(() => {
       setTotalTime((prevTime) => prevTime - 1)
     }, 1000)
-    if (totalTime <= config.S_TotalTimeChangeLocal && maxLocalTime != config.S_LocalTime2) {
+    if (totalTime <= config.totalTimeChangeLocal && maxLocalTime != config.localTime2) {
       playSound(SOUNDS.changeMaxtime)
-      setMaxLocalTime(config.S_LocalTime2)
+      setMaxLocalTime(config.localTime2)
     }
 
     return () => clearInterval(timerTotal)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [totalTime, isTotalPause, isMute])
-
-  useEffect(() => {
-    if (!currentPlayer) return
-    const state = !isTotalPause
-    if (state != isGameInProgress) setIsGameInProgress(state)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isTotalPause, currentPlayer])
 
   useEffect(() => {
     if (localTime <= 0) setIsLocalPause(true)
@@ -188,7 +183,6 @@ export default function Shootout({ config, namePlayer1, namePlayer2 }: Props) {
       setCurrentPlayer(undefined)
       playSound(SOUNDS.endGame)
       setIsMatchEnded(true)
-      setIsGameInProgress(false)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [totalTime, isMute])
@@ -233,8 +227,8 @@ export default function Shootout({ config, namePlayer1, namePlayer2 }: Props) {
         {!isMatchEnded ? (
           <>
             <div className={styles.time}>
-              <RoundedBloc isAlert={totalTime <= config.S_AlertTotalTime}>
-                Total : {secondesToMinutes(totalTime)}
+              <RoundedBloc isAlert={totalTime <= shootoutConfig.S_AlertTotalTime}>
+                <strong>Total</strong> <span className={styles.chrono}>{secondesToMinutes(totalTime)}</span>
               </RoundedBloc>
             </div>
             {currentPlayer && (
@@ -243,7 +237,10 @@ export default function Shootout({ config, namePlayer1, namePlayer2 }: Props) {
               </div>
             )}
             <div className={styles.time} style={{ marginLeft: -4 }}>
-              <RoundedBloc isAlert={maxLocalTime == config.S_LocalTime2}>Shot : {maxLocalTime}s</RoundedBloc>
+              <RoundedBloc isAlert={maxLocalTime == config.localTime2}>
+                <strong>Shot </strong>
+                <span style={{ paddingLeft: 6 }}>{maxLocalTime}s</span>
+              </RoundedBloc>
             </div>
           </>
         ) : (

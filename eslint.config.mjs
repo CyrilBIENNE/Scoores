@@ -10,7 +10,12 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.extends("next/core-web-vitals", "next/typescript"),{
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off', // Permet d'utiliser "any" partout
+      '@typescript-eslint/explicit-module-boundary-types': 'off', // Permet de ne pas spécifier explicitement les types des fonctions
+    },
+  }
 ];
 
 export default eslintConfig;

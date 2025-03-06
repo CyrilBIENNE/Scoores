@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 
 import { createContext, useEffect, useState } from 'react'
 import { ShootoutStructure } from './Shootout.type'
-import { shootoutConfig } from './default.config'
+import { shootoutConfig } from '../default.config'
 
 type Props = {
   initParams?: { [key: string]: any }

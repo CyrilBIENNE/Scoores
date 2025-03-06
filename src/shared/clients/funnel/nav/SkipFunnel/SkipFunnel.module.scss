@@ -1,0 +1,19 @@
+.skip {
+  cursor: pointer;
+  color: $color-link;
+  display: flex;
+  margin: 24px auto 0;
+  align-items: center;
+  width: fit-content;
+  gap: 2px;
+  transition-duration: 150ms;
+  svg path {
+    stroke: $color-link;
+  }
+  &:hover {
+    color: $color-main;
+    svg path {
+      stroke: $color-main;
+    }
+  }
+}

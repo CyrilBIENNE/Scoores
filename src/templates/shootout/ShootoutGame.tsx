@@ -1,62 +1,39 @@
 'use client'
 
-import { shootoutConfig } from './providers/default.config'
-import useShootout from './providers/useShootout'
 import styles from './ShootoutGame.module.scss'
-import { useEffect, useState } from 'react'
+import useShootout from './providers/useShootout'
+import Shootout from './Shootout/Shootout'
+import { useState } from 'react'
+import ShootoutForm from './forms/ShootoutParamatersForm'
+import { ShootoutGameConfig } from './Shootout/Shootout.type'
 
 export default function ShootoutGame() {
-  const [gameConfig, setGameConfig] = useState(shootoutConfig)
-  const [name1, setName1] = useState('Player 1')
-  const [name2, setName2] = useState('Player 2')
-  const { setIsGameInProgress, isLoading } = useShootout()
+  const { isLoading: isShootoutloading } = useShootout()
+  const [gameConfig, setGameConfig] = useState<ShootoutGameConfig | undefined>(undefined)
 
-  useEffect(() => {
-    setIsGameInProgress(true)
-  }, [])
+  const onEnded = (res: any) => {
+    const q = res?.questions
+    setGameConfig({
+      name1: q?.name1,
+      name2: q?.name2,
+      totalTime: q.totalTime,
+      localTime1: q.localTime1,
+      localTime2: q.localTime2,
+      totalTimeChangeLocal: q.totalTimeChangeLocal,
+    })
+  }
 
-  if (isLoading) return <>Loading...</>
+  if (isShootoutloading) return <>Loading...</>
 
   return (
-    <div className={styles.params}>
-      <div className="table">
-        <div>
-          <div>
-            <strong>Nom joueur 1</strong>
-          </div>
-          <div>{name1}</div>
+    <>
+      {gameConfig ? (
+        <Shootout config={gameConfig} />
+      ) : (
+        <div className={styles.container}>
+          <ShootoutForm onEnded={onEnded} />
         </div>
-        <div>
-          <div>
-            <strong>Nom joueur 2</strong>
-          </div>
-          <div>{name2}</div>
-        </div>
-        <div>
-          <div>
-            <strong>Temps total</strong>
-          </div>
-          <div>{gameConfig.S_TotalTime} secondes</div>
-        </div>
-        <div>
-          <div>
-            <strong>Temps de shot 1</strong>
-          </div>
-          <div>{gameConfig.S_LocalTime1} secondes</div>
-        </div>
-        <div>
-          <div>
-            <strong>Changement de temps de shot au bout de</strong>
-          </div>
-          <div>{gameConfig.S_TotalTime} secondes</div>
-        </div>
-        <div>
-          <div>
-            <strong>Temps de shot 2</strong>
-          </div>
-          <div>{gameConfig.S_LocalTime1} secondes</div>
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   )
 }

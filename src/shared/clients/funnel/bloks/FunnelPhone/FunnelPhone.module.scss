@@ -1,0 +1,16 @@
+.funnelInput {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: $shadow-close;
+  background-color: $color-white;
+  margin-bottom: 24px;
+  padding: 0 0 0 24px;
+  &[data-error='true'] {
+    border: 1px solid red;
+  }
+  transition-duration: 150ms;
+  &:hover,
+  &:focus {
+    box-shadow: $shadow-far;
+  }
+}

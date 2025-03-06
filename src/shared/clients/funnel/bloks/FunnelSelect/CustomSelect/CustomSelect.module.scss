@@ -1,0 +1,27 @@
+.customSelect {
+  display: inline;
+}
+
+.item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 12px 12px;
+  border-top: 1px solid $gray3;
+  cursor: pointer;
+  background-color: white;
+  font-size: 14px;
+  line-height: 18px;
+
+  @media screen and (min-width: $tablet-min-width) {
+    padding: 12px 24px;
+    line-height: inherit;
+    font-size: inherit;
+  }
+
+  &:hover {
+    color: $color-main;
+    background-color: $gray2;
+  }
+}

@@ -1,0 +1,86 @@
+.outside {
+  position: relative;
+  display: inline;
+  margin: 20px;
+  height: fit-content;
+}
+
+.container {
+  position: fixed;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 26, 37, 0.5);
+  display: flex;
+  justify-content: center;
+  overflow: scroll;
+  align-items: center;
+  scrollbar-width: none; /* For Firefox */
+
+  /*hide scrollbar*/
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  @media (max-width: $tablet-min-width) {
+    align-items: flex-end;
+    overflow-y: auto;
+    .outside {
+      margin: 0;
+    }
+  }
+}
+
+.wrapper {
+  position: relative;
+  height: fit-content;
+  background-color: $color-white;
+  border-radius: 6px;
+  box-shadow: $shadow-very-close;
+  padding: 24px;
+  min-width: 100vw;
+
+  @media (min-width: $tablet-min-width) {
+    min-width: unset;
+    max-width: 525px;
+  }
+  @media (max-width: $tablet-min-width) {
+    border-radius: 6px 6px 0 0;
+    height: fit-content;
+    min-height: 70vh;
+    max-height: 95vh;
+    overflow-y: auto;
+    width: 100%;
+  }
+}
+
+.title {
+  color: $blue-8;
+  font-weight: 700;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  background-color: rgba(0, 66, 92, 0.1);
+  border-radius: 1000px;
+  cursor: pointer;
+
+  > svg {
+    margin: auto;
+  }
+}

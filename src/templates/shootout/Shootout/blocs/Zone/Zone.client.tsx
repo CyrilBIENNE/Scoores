@@ -7,7 +7,7 @@ import Cri from '@/icons/cri'
 import TimeBloc from '../TimeBlock/TimeBlock'
 import Button from '@/blocs/basic/Button/Button'
 import { ColorType } from 'shared/helpers/color.type'
-import { secondesToMinutes } from '@/utils/secondesToMinutes'
+import { secondesToMinutes } from '@/utils/format/secondesToMinutes'
 import { ShootoutGamePlayer } from '../../../providers/Shootout.type'
 
 type Props = {
@@ -31,9 +31,7 @@ export default function ZoneClient({
   if (currentPlayer?.number != player.number)
     return (
       <>
-        <div style={{ color: '#FFF', position: 'absolute', top: 5, right: 5, zIndex: 9, opacity: 0.5 }}>
-          {player.totalTime}
-        </div>
+        <div className={styles.timer}>{secondesToMinutes(Math.round(player.totalTime))}</div>
         <div className={styles.actionZone}>
           <div className={styles.action} onClick={() => onChangePlayer(player)}>
             <Play size="90" />
@@ -44,9 +42,7 @@ export default function ZoneClient({
 
   return (
     <>
-      <div style={{ color: '#FFF', position: 'absolute', top: 5, right: 5, zIndex: 9, opacity: 0.5 }}>
-        {player.totalTime}
-      </div>
+      <div className={styles.timer}>{secondesToMinutes(Math.round(player.totalTime))}</div>
       {localTime == 0 && (
         <div className={styles.failed}>
           <Cri size="90%" color="rgba(255, 0, 0, 0.6)" />
@@ -78,7 +74,7 @@ export default function ZoneClient({
               }}
               data-failed={localTime == 0}
             >
-              <Pause size="40" />
+              <Pause size="30" />
             </div>
           ) : (
             localTime > 0 && (
@@ -88,7 +84,7 @@ export default function ZoneClient({
                   setIsLocalPause(false)
                 }}
               >
-                <Play size="40" />
+                <Play size="30" />
               </div>
             )
           )}

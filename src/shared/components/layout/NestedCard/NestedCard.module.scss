@@ -1,0 +1,28 @@
+.card {
+  border-radius: 6px;
+  background: #fff;
+  position: relative;
+  box-shadow: $shadow-close;
+  border: 1px solid #ced5d8;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: $shadow-middle;
+  }
+  .nestedLink {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    clear: none;
+    cursor: pointer;
+    z-index: 1 !important;
+    opacity: 0;
+  }
+  a {
+    position: relative;
+    z-index: 2;
+  }
+}

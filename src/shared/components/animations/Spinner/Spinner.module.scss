@@ -1,0 +1,29 @@
+.innerCircle {
+  animation: spinner 1.5s linear infinite;
+  transform-origin: center center;
+}
+
+.outterCircle {
+  animation: spinner 1.8s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  @media (max-width: $tablet-min-width) {
+    width: 100px;
+  }
+}
+
+.centerAnim {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

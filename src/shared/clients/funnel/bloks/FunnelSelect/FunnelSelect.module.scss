@@ -1,0 +1,120 @@
+.funnelSelect {
+  max-width: 825px;
+
+  &[data-fullwidth='true'] {
+    max-width: 100%;
+  }
+
+  width: 100%;
+  margin: 0 0 0;
+  height: 50px;
+  position: relative;
+  overflow: visible;
+
+  .closeMobile {
+    display: none;
+  }
+
+  @media (min-width: $tablet-min-width) {
+    top: inherit !important;
+    height: 50px !important;
+  }
+  &[data-open='true'] {
+    @media (max-width: $tablet-min-width) {
+      background-color: #f7f7fcff;
+      position: fixed;
+      right: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 110;
+      padding: 48px 24px 24px 24px;
+      transition: 300ms;
+
+      .closeMobile {
+        cursor: pointer;
+        position: absolute;
+        right: 32px;
+        top: 12px;
+        display: unset;
+      }
+    }
+  }
+
+  .wrapper {
+    width: 100%;
+    background-color: $color-white;
+    border: 1px solid #ccc;
+
+    border-radius: 3px;
+    z-index: 4;
+    position: relative;
+    box-shadow: $shadow-close;
+
+    @media (max-width: $tablet-min-width) {
+      max-height: 100%;
+      overflow: hidden;
+    }
+
+    .wrapperBtn {
+      display: flex;
+      align-items: center;
+      padding-left: 12px;
+      > svg {
+        margin-right: 12px;
+        margin-top: 3px;
+        min-width: 14px;
+      }
+
+      > label {
+        max-width: calc(100% - 26px);
+      }
+
+      &[data-btn='true'] > label {
+        max-width: calc(100% - 113px);
+      }
+    }
+  }
+  &:hover,
+  &:focus .wrapper {
+    box-shadow: $shadow-far;
+  }
+  .droplist {
+    width: 100%;
+    max-height: calc(100% - 50px);
+    overflow-y: scroll;
+    position: relative;
+    z-index: 4;
+    background-color: #fff;
+
+    /*hide scrollbar*/
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    scrollbar-width: none;
+    /* For Firefox */
+
+    @media (min-width: $tablet-min-width) {
+      max-height: 218px;
+    }
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background: $color-action;
+  color: #fff;
+  padding: 6px 12px;
+  height: 100%;
+  margin-right: 6px;
+  gap: 6px;
+  min-width: 81px;
+  svg path {
+    stroke: white;
+  }
+}

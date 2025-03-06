@@ -1,0 +1,93 @@
+.wrapper {
+  height: 48px;
+
+  cursor: text;
+  display: flex;
+  flex-direction: row;
+  transition: 300ms;
+  position: relative;
+  width: 100%;
+
+  .inputWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .label {
+    line-height: 20px;
+    margin-bottom: -3px;
+    color: $gray5;
+  }
+  &:not([data-value='']):not([data-type='textarea']) .inputWrapper {
+    max-width: calc(100% - 35px);
+  }
+  &:not([data-focus='true'][data-value='']) .label {
+    font-size: 12px;
+    color: $gray7;
+  }
+  &[data-focus='true'] .label {
+    font-size: 12px;
+    color: $gray7;
+  }
+  &[data-focus='false'][data-value=''] .label {
+    font-size: 14px;
+    color: $gray5;
+  }
+  .error {
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: -3px;
+    color: red;
+  }
+
+  &:not([data-type='textarea']).input {
+    height: 24px;
+  }
+  .input[type='date'] {
+    width: fit-content;
+    min-width: 160px;
+    min-height: 24px;
+    -webkit-appearance: none;
+    &::-webkit-date-and-time-value {
+      text-align: left;
+    }
+  }
+  &[data-focus='false'][data-value='']:not([data-type='textarea']) .input {
+    height: 0px;
+  }
+
+  .close {
+    cursor: pointer;
+    padding: 16px 8px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  &[data-type='textarea'] {
+    padding-top: 8px;
+    height: auto !important;
+    .close {
+      position: absolute;
+      top: -7px;
+      right: 0;
+      height: 48px;
+    }
+  }
+
+  .label,
+  .input,
+  .close {
+    transition: 300ms;
+  }
+}
+.carcount {
+  position: absolute;
+  right: 32px;
+  color: $gray5;
+  top: 6px;
+}
