@@ -3,7 +3,7 @@
   border-radius: 4px;
   box-shadow: $shadow-close;
   background-color: $color-white;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
   padding: 0 0 0 24px;
   &[data-error='true'] {
     border: 1px solid red;
@@ -12,5 +12,8 @@
   &:hover,
   &:focus {
     box-shadow: $shadow-far;
+  }
+  @media (min-width: $tablet-min-width) {
+    margin-bottom: 24px;
   }
 }

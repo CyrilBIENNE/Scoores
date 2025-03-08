@@ -1,6 +1,6 @@
 .checkbox,
 .checkboxLabel {
-  margin-bottom: 24px;
+  margin-bottom: 18px;
   svg {
     opacity: 0;
     transition-duration: 300ms;
@@ -35,6 +35,10 @@
       text-decoration: underline;
       font-weight: bold;
     }
+  }
+
+  @media (min-width: $tablet-min-width) {
+    margin-bottom: 24px;
   }
 }
 

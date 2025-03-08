@@ -4,16 +4,17 @@
   //justify-content: center;
   align-items: center;
   padding-top: 12px;
-  gap: 10px;
+  gap: 6px;
   height: 100%;
   margin: auto;
-  max-width: 300px;
+  width: 280px;
+  max-width: calc(100% - 48px);
   min-height: calc(100vh - $header-height);
 }
 
 .shootout {
   position: relative;
-  align-items: center;
+  overflow: hidden;
   margin: auto;
   width: 100%;
   height: calc(100vh - $header-height);
