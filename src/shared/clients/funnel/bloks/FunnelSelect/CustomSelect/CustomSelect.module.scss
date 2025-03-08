@@ -14,7 +14,7 @@
   font-size: 14px;
   line-height: 18px;
 
-  @media screen and (min-width: $tablet-min-width) {
+  @media (min-width: $tablet-min-width) {
     padding: 12px 24px;
     line-height: inherit;
     font-size: inherit;
