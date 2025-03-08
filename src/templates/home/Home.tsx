@@ -2,12 +2,17 @@ import Link from 'next/link'
 import styles from './Home.module.scss'
 import Play from '@/icons/play'
 import Image from 'next/image'
+import { SITE_VERSION } from 'configs/configs.type'
 
 export default function Home() {
   return (
     <div className={styles.home}>
       <div className="flex-column">
-        <Image src="/img/logo.svg" alt="Scoores" width={200} height={120} />
+        <div className="flex" style={{ gap: 0 }}>
+          <div style={{ width: 32 }}></div>
+          <Image src="/img/logo.svg" alt="Scoores" width={206} height={94} />
+          <div style={{ width: 32, color: '#fff', opacity: 0.3, fontSize: 12, paddingTop: 10 }}>v{SITE_VERSION}</div>
+        </div>
         <ul>
           <li>
             <Link className={styles.app} href={'/shootout'} title="Shootout!">
