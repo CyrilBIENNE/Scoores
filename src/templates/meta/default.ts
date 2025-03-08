@@ -5,15 +5,15 @@ export const defaultMetadata = {
   title,
   description,
   robots: {
-    index: process.env.NEXT_PUBLIC_IS_SEO_PROD === 'true',
-    follow: process.env.NEXT_PUBLIC_IS_SEO_PROD === 'true',
+    index: true,
+    follow: true,
   },
   openGraph: {
     title,
     description,
     url: '',
     siteName: 'Scoores',
-    images: '/img/logo_zaf_2024.svg',
+    images: '/img/logo_big.svg',
     locale: 'fr_FR',
     type: 'website',
   },
@@ -21,8 +21,8 @@ export const defaultMetadata = {
     card: 'summary_large_image',
     title,
     description,
-    site: '@shootout',
-    images: '/img/logo_zaf_2024.svg',
+    site: '@scoores',
+    images: '/img/logo_big.svg',
   },
   icons: {
     other: [

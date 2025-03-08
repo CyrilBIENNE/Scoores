@@ -14,6 +14,7 @@ import GameReport from './blocs/GameReport/GameReport'
 import RoundedBloc from '@/components/RoundedBloc/RoundedBloc'
 import { shootoutConfig } from '../default.config'
 import { ShootoutGameConfig } from './Shootout.type'
+import WakeLock from '@/components/WakeLock/WakeLock'
 
 type Props = {
   config: ShootoutGameConfig
@@ -226,6 +227,7 @@ export default function Shootout({ config }: Props) {
       <div className={styles.middle}>
         {!isMatchEnded ? (
           <>
+            <WakeLock />
             <div className={styles.time}>
               <RoundedBloc isAlert={totalTime <= shootoutConfig.S_AlertTotalTime}>
                 <strong>Total</strong> <span className={styles.chrono}>{secondesToMinutes(totalTime)}</span>
