@@ -90,7 +90,7 @@ export default function Shootout({ config }: Props) {
       const newTotalTime =
         currentPlayer.totalTime + Math.min(currentShotTime, Math.round(Math.floor((Date.now() - timestamp) / 10)) / 100)
       currentPlayer.totalTime = Math.round(newTotalTime * 100) / 100
-      console.log(`On encaisse joureur ${currentPlayer.number}`, newTotalTime)
+      //console.log(`On encaisse joueur ${currentPlayer.number}`, newTotalTime)
       updatePlayer(currentPlayer)
       setTimestamp(undefined)
     }
