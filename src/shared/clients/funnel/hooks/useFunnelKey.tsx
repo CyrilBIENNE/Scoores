@@ -11,7 +11,6 @@ export default function useFunnelKey(key?: string, defaultJS?: string): any {
 
   useEffect(() => {
     if (!defaultJS) return
-
     if (!value && value !== '') {
       const data = dynamicData(defaultJS)
       if (data) onChange(data)
