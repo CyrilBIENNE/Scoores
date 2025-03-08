@@ -7,9 +7,9 @@
   border: solid 5px #fff;
   border-radius: 120px;
   background-color: white;
-  color: #333;
+  color: $color-dark;
   &[data-alert='true'] {
-    color: red;
+    color: $color-red;
   }
 
   &[data-is-ended='true'] {

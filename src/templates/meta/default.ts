@@ -1,6 +1,5 @@
-const title = 'Shootout!'
-const description =
-  'Shootout.'
+const title = 'Scoores !'
+const description = 'Scoores, une webapp qui fournit des outils pour noter les scores (billard, fléchettes, ...).'
 
 export const defaultMetadata = {
   title,
@@ -13,7 +12,7 @@ export const defaultMetadata = {
     title,
     description,
     url: '',
-    siteName: 'Shootout',
+    siteName: 'Scoores',
     images: '/img/logo_zaf_2024.svg',
     locale: 'fr_FR',
     type: 'website',

@@ -31,7 +31,7 @@ export default function ZoneClient({
   if (currentPlayer?.number != player.number)
     return (
       <>
-        <div className={styles.timer}>{secondesToMinutes(Math.round(player.totalTime))}</div>
+        {/* <div className={styles.timer}>{secondesToMinutes(Math.round(player.totalTime))}</div> */}
         <div className={styles.actionZone}>
           <div className={styles.action} onClick={() => onChangePlayer(player)}>
             <Play size="90" />
@@ -42,10 +42,10 @@ export default function ZoneClient({
 
   return (
     <>
-      <div className={styles.timer}>{secondesToMinutes(Math.round(player.totalTime))}</div>
+      {/* <div className={styles.timer}>{secondesToMinutes(Math.round(player.totalTime))}</div> */}
       {localTime == 0 && (
         <div className={styles.failed}>
-          <Cri size="90%" color="rgba(255, 0, 0, 0.6)" />
+          <Cri size="90%" color="rgba(0, 0, 0, 0.2)" />
         </div>
       )}
       <div className={styles.actionZone}>
@@ -56,7 +56,7 @@ export default function ZoneClient({
               callback={() => {
                 onNewShot()
               }}
-              type={ColorType.WHITE}
+              type={ColorType.PRIMARY}
               size="lg"
             />
           )}

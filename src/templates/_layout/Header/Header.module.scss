@@ -1,34 +1,38 @@
 .header {
-  width: 100%;
-  background: rgba(24, 65, 90, 0.5);
-  padding: 12px 24px;
+  position: sticky;
+  z-index: 10;
   display: flex;
-  background-color: white;
   justify-content: space-between;
   align-items: center;
-  top: 0;
-  box-shadow: 0 2px 4px rgba(60, 60, 60, 0.2);
-  z-index: 10;
-  position: sticky;
+  width: 100%;
   height: $header-height;
+  padding: 12px 24px;
+  top: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  background-color: $color-dark;
+  color: $color-gray;
 }
 .logo {
-  height: 23px;
+  line-height: 0;
+  cursor: pointer;
+}
+.gTitle {
+  color: $color-yellow;
 }
 .icons {
   display: flex;
   gap: 6px;
   align-items: center;
-  color: #999;
+  color: $color-gray;
   line-height: 0;
   a {
-    color: #999;
+    color: $color-gray;
   }
   cursor: pointer;
   > *:hover {
-    color: $blue-2;
+    color: $color-yellow;
     a {
-      color: $blue-2;
+      color: $color-yellow;
     }
   }
 }

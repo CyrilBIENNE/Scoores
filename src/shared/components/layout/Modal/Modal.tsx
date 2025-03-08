@@ -20,7 +20,7 @@ const Modal = ({ children, onClose, className, title }: Props) => {
         <div className={styles.wrapper + (className ? ' ' + className : '')}>
           <div className={styles.topbar}>
             {title ? <p className={`${styles.title} footnote`}>{title}</p> : <p></p>}
-            {onClose && <Close size={16} color={'#002433'} class={styles.icon} onClick={onClose} />}
+            {onClose && <Close size={16} color={'#ccc'} class={styles.icon} onClick={onClose} />}
           </div>
           {children}
         </div>

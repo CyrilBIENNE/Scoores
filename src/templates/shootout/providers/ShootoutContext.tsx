@@ -16,6 +16,7 @@ export interface ShootoutContextData {
   isMute: boolean
   setIsMute: (isMute: boolean) => void
   isGameInProgress: boolean
+  currentGame?: string
   setIsGameInProgress: (bool: boolean) => void
 }
 

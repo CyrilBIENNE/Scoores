@@ -28,7 +28,7 @@
     font-size: 54px;
     font-weight: 900;
     text-transform: uppercase;
-    color: #fff;
+    color: $color-white;
     opacity: 0.2;
     padding: 12px 6px;
   }
@@ -78,6 +78,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  &:active {
+    color: $color-yellow;
+  }
 }
 
 .subAction {
@@ -107,15 +110,18 @@
   border: solid 5px #fff;
   border-radius: 100%;
   transition: all 100ms ease-in;
+  cursor: pointer;
 
   &[data-failed='true'] {
-    color: #f00;
-    border-color: #f00;
+    color: $color-red;
+    border-color: $color-red;
   }
-
+  &:active {
+    color: $color-yellow;
+  }
   &:active {
     transform: scale(0.9);
-    color: #ccc;
-    border: solid 5px #ccc;
+    color: $color-yellow;
+    border: solid 5px $color-yellow;
   }
 }

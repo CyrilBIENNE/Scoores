@@ -1,6 +1,8 @@
 @use 'variables' as *;
 :root {
   --color-main: #{$color-main};
+  --color-yellow: #{$color-yellow};
+  --color-dark: #{$color-dark};
   --color-white: #{$color-white};
   --color-blue: #{$color-blue};
   --color-red: #{$color-red};

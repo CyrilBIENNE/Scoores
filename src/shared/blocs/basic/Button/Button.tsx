@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import ClientButton from '@/blocs/basic/Button/Button.client'
 import { ButtonProps } from './Button.type'
+import { ColorType } from 'shared/helpers/color.type'
 
 export default function Button(props: ButtonProps) {
-  const { icon, label, children, target, rel, link, callback, disabled, fullWidth, isCenter, size } = props
-  let { type } = props
-  if (isCenter) type = 'secondary'
+  const { icon, label, children, target, rel, link, callback, disabled, fullWidth, isCenter, size, type } = props
+
   const attributes: any = {
-    className: 'btn btn-' + (type ?? 'primary') + (icon ? ' ' + (icon && ' btn-icon') : ''),
+    className: 'btn btn-' + (type ?? ColorType.PRIMARY) + (icon ? ' ' + (icon && ' btn-icon') : ''),
     title: label,
     target: target ?? undefined,
     rel: rel ?? undefined,

@@ -1,7 +1,7 @@
 @use 'variables' as *;
 
 body {
-  background-color: #fbfdff;
+  background-color: $color-dark;
   overflow-x: hidden;
 }
 
@@ -73,29 +73,7 @@ main {
   }
 }
 
-.card-24 {
-  background: #fff;
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
-  box-shadow: $shadow-close;
-  border: 1px solid $gray3;
-  padding: 24px;
-}
-.card-48 {
-  background: #fff;
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
-  box-shadow: $shadow-close;
-  border: 1px solid $gray3;
-  padding: 24px;
-  @media (min-width: $tablet-min-width) {
-    padding: 48px;
-  }
-}
-
-.flex-12 {
+.flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -104,6 +82,18 @@ main {
     flex: 1;
   }
 }
+
+.flex-column {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  > * {
+    flex: 1;
+  }
+}
+
 sup {
   font-size: 70%;
   vertical-align: super;
