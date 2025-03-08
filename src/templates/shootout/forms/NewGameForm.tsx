@@ -12,12 +12,16 @@ type Props = {
 
 export default function NewGameForm({ onEnded }: Props) {
   const { step, nav } = useFunnelSteps('funnel_shootout', steps)
-  const { data: funnel, isLoading } = useFunnel()
+  const { data: funnel, isLoading, setFunnel } = useFunnel()
 
   useEffect(() => {
     if (isLoading) return
-
-    if (funnel.lastStep == 'isEnded') return onEnded ? onEnded(funnel) : null
+    if (funnel.lastStep == 'isEnded') {
+      setFunnel({ ...funnel, lastStep: 'step1' })
+      setTimeout(() => {
+        return onEnded ? onEnded(funnel) : null
+      }, 500)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [funnel, isLoading])
 
@@ -32,7 +36,7 @@ export default function NewGameForm({ onEnded }: Props) {
 const steps: any = [
   {
     if: '',
-    _uid: 'a7b62606-c74b-422f-a17b-18fac0315ds',
+    _uid: 'step1',
     titre: 'Réglez votre partie',
     bypass: false,
     component: 'step_funnel',
