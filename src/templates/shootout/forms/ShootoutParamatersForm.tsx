@@ -21,7 +21,7 @@ type Props = {
 
 export default function ShootoutForm({ children, onEnded }: Props) {
   return (
-    <FunnelProvider storage={{ id: `shootout_game` /*expireHour: 0, type: 'sessionStorage'*/ }}>
+    <FunnelProvider storage={{ id: `shootout_game` /*expireHour: 0/>*/, type: 'localStorage' }}>
       <ShootoutFormContent onEnded={onEnded}>{children}</ShootoutFormContent>
     </FunnelProvider>
   )

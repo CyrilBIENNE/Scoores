@@ -14,6 +14,7 @@ import GameReport from './blocs/GameReport/GameReport'
 import RoundedBloc from '@/components/RoundedBloc/RoundedBloc'
 import { shootoutConfig } from '../default.config'
 import { ShootoutGameConfig } from './Shootout.type'
+import WakeLock from '@/components/WakeLock/WakeLock'
 
 type Props = {
   config: ShootoutGameConfig
@@ -65,7 +66,7 @@ export default function Shootout({ config }: Props) {
         if (!isMute) soundLocalTimeAlert()
         break
       case SOUNDS.changeMaxtime:
-        window?.navigator?.vibrate([200, 300, 200])
+        window?.navigator?.vibrate([200, 200, 200, 200, 200])
         if (!isMute) {
           soundChangeMaxtime()
           setTimeout(() => soundChangeMaxtime(), 200)
@@ -76,7 +77,7 @@ export default function Shootout({ config }: Props) {
         if (!isMute) soundEndLocalTime()
         break
       case SOUNDS.endGame:
-        window?.navigator?.vibrate([200, 100, 200, 100, 200])
+        window?.navigator?.vibrate([600])
         if (!isMute) soundEndGame()
         break
       default:
@@ -226,6 +227,7 @@ export default function Shootout({ config }: Props) {
       <div className={styles.middle}>
         {!isMatchEnded ? (
           <>
+            <WakeLock />
             <div className={styles.time}>
               <RoundedBloc isAlert={totalTime <= shootoutConfig.S_AlertTotalTime}>
                 <strong>Total</strong> <span className={styles.chrono}>{secondesToMinutes(totalTime)}</span>

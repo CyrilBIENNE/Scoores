@@ -1,6 +1,5 @@
-const title = 'Shootout - 404 - Page non trouvée'
-const description =
-  'Shootout!'
+const title = 'Scoores - 404 - Page non trouvée'
+const description = 'Scoores - 404 - Page non trouvée'
 
 export const defaultMetadata404 = {
   title,
@@ -13,8 +12,8 @@ export const defaultMetadata404 = {
     title,
     description,
     url: '',
-    siteName: 'Shootout',
-    images: '/img/logo_zaf_2024.svg',
+    siteName: 'Scoores',
+    images: '/img/logo_big.svg',
     locale: 'fr_FR',
     type: 'website',
   },
