@@ -15,6 +15,7 @@ import RoundedBloc from '@/components/RoundedBloc/RoundedBloc'
 import { shootoutConfig } from '../default.config'
 import { ShootoutGameConfig } from './Shootout.type'
 import WakeLock from '@/components/WakeLock/WakeLock'
+import Button from '@/blocs/basic/Button/Button'
 
 type Props = {
   config: ShootoutGameConfig
@@ -246,9 +247,13 @@ export default function Shootout({ config }: Props) {
             </div>
           </>
         ) : (
-          <RoundedBloc size="md" style={{ backgroundColor: '#FFF', color: '#333' }}>
-            Match terminé | {Math.max(player1.turns, player2.turns)} tours
-          </RoundedBloc>
+          <>
+            <RoundedBloc style={{ backgroundColor: '#FFF', fontWeight: 600 }}>
+              Match terminé | {Math.max(player1.turns, player2.turns)} tours
+            </RoundedBloc>
+
+            <Button callback={() => window.location.reload()} label="Nouvelle partie" />
+          </>
         )}
       </div>
     </div>

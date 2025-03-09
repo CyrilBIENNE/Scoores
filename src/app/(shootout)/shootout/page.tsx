@@ -7,7 +7,7 @@ export async function generateMetadata() {
   return {
     defaultMetadata,
     title: 'Shootout',
-    description: 'Shootout, une variation du jeu de snooker pour les sprotifs.',
+    description: 'Chronomètre pour Shootout, une variation du jeu de snooker pour les sportifs.',
   }
 }
 
