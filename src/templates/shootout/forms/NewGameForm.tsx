@@ -1,5 +1,6 @@
 'use client'
 
+import styles from './NewGameForm.module.scss'
 import Funnel from 'shared/clients/funnel/Funnel'
 import { useFunnel } from 'shared/clients/funnel/FunnelProvider'
 import useFunnelSteps from 'shared/clients/funnel/hooks/useFunnelSteps'
@@ -13,6 +14,21 @@ type Props = {
 export default function NewGameForm({ onEnded }: Props) {
   const { step, nav } = useFunnelSteps('funnel_shootout', steps)
   const { data: funnel, isLoading, setFunnel } = useFunnel()
+
+  function reset() {
+    setFunnel({
+      ...funnel,
+      questions: {
+        name1: 'Player 1',
+        name2: 'Player 2',
+        totalTime: shootoutConfig.S_TotalTime,
+        localTime1: shootoutConfig.S_LocalTime1,
+        totalTimeChangeLocal: shootoutConfig.S_TotalTimeChangeLocal,
+        localTime2: shootoutConfig.S_LocalTime2,
+        version: shootoutConfig,
+      },
+    })
+  }
 
   useEffect(() => {
     if (isLoading) return
@@ -28,6 +44,9 @@ export default function NewGameForm({ onEnded }: Props) {
   return (
     <>
       <h1>New Game</h1>
+      <div className={styles.reset} onClick={reset} title="Recharger les valeurs par défaut">
+        <span>Recharger les valeurs par défaut</span>
+      </div>
       <Funnel {...step} onNext={() => nav.onNext()} nav={nav} previous={'Précédent'} btnFullWidth={true} />
     </>
   )
@@ -95,7 +114,7 @@ const steps: any = [
         _uid: 'shootout-fm-5',
         type: 'number',
         error: 'Définir la durée de la 2e période',
-        label: 'Durée de la partie',
+        label: 'Durée de la 2e période',
         default: shootoutConfig.S_TotalTimeChangeLocal,
         required: true,
         component: 'funnel_blok_input',
@@ -112,6 +131,15 @@ const steps: any = [
         required: true,
         component: 'funnel_blok_input',
         customKey: 'localTime2',
+        errors: [],
+      },
+      {
+        if: '',
+        _uid: 'shootout-fm-7',
+        type: 'hidden',
+        default: `'${shootoutConfig.version}'`,
+        component: 'funnel_blok_input_hidden',
+        customKey: 'version',
         errors: [],
       },
     ],

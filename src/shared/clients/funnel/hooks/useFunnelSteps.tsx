@@ -30,17 +30,6 @@ export default function useFunnelSteps(name: string, initSteps: any[], onEnded?:
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastStep])
 
-  /*
-  useEffect(() => {
-    if (!stepsIsLoading) viewFunnelStepEvent(name, index, steps[index].questions)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [index, stepsIsLoading]
-
-  useEffect(() => {
-    if (isEnded) finishFunnelEvent(name, index, funnel._id)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isEnded]))*/
-
   // Progress
   const realProgress = isEnded ? 1 : (index + 1) / steps.length
   const progress = realProgress * 100
@@ -55,7 +44,6 @@ export default function useFunnelSteps(name: string, initSteps: any[], onEnded?:
     }
     setIndex(i)
     addParam('lastStep', steps[i]['_uid'])
-    addParam('zendeskStageID', steps[i]['zendeskStageID'] ?? null)
   }
 
   const getNextStep = (i: number, step = 1): any => {

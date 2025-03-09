@@ -1,9 +1,9 @@
 @use 'variables' as *;
 
 body {
-  font-size: 18px;
-  line-height: 28px;
-  color: $blue-2;
+  font-size: 16px;
+  line-height: 24px;
+  color: $color-gray;
 }
 /* prettier-ignore */
 input, textarea, button, select {
@@ -18,12 +18,20 @@ a {
   color: $color-link;
 }
 
+.container {
+  position: relative;
+  max-width: 960px;
+  margin: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
 h1,
 .h1 {
   font-size: 28px;
   line-height: 38px;
-  font-weight: 700;
   margin-bottom: 18px;
+  font-weight: 500;
   color: $color-yellow;
   @media (min-width: $tablet-min-width) {
     margin-bottom: 24px;
@@ -34,9 +42,9 @@ h2,
 .h2 {
   font-size: 24px;
   line-height: 34px;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 16px;
-  color: $blue-2;
+  color: #c88c00;
   scroll-margin-top: 80px; /* readjust link anchor target */
 }
 
@@ -44,9 +52,9 @@ h3,
 .h3 {
   font-size: 22px;
   line-height: 32px;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 12px;
-  color: $blue-6;
+  color: #a67400;
   scroll-margin-top: 80px; /* readjust link anchor target */
 }
 
@@ -63,7 +71,7 @@ h6,
 }
 .h4,
 h4 {
-  color: $blue-7;
+  color: white;
 }
 .text-center {
   text-align: center;
@@ -71,17 +79,6 @@ h4 {
 
 .nowrap {
   white-space: nowrap;
-}
-.inverted {
-  h1,
-  h2,
-  h3,
-  h4,
-  p,
-  a,
-  strong {
-    color: #fff;
-  }
 }
 
 input::placeholder {
@@ -100,27 +97,20 @@ input::placeholder {
   line-height: 24px;
   text-transform: uppercase;
 }
-.body16 {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 26px;
-}
+
 .headnote {
   font-size: 14px;
   line-height: 24px;
 }
 
-.italic {
-  font-style: italic;
-}
-.strong {
-  font-weight: 700;
+strong {
+  font-weight: 500;
 }
 .footnote {
   font-size: 12px;
   line-height: 22px;
 }
 
-.grey6 {
-  color: $gray6;
+li {
+  margin-bottom: 12px;
 }
