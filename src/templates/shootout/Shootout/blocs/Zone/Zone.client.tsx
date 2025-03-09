@@ -28,12 +28,17 @@ export default function ZoneClient({
   onChangePlayer,
   onNewShot,
 }: Props) {
+  const styleZone: any = {}
+  if (player?.number == 1) {
+    styleZone['marginBottom'] = '24px'
+  }
+
   if (currentPlayer?.number != player.number)
     return (
       <>
         {/* <div className={styles.timer}>{secondesToMinutes(Math.round(player.totalTime))}</div> */}
         <div className={styles.actionZone}>
-          <div className={styles.action} onClick={() => onChangePlayer(player)}>
+          <div className={styles.action} onClick={() => onChangePlayer(player)} style={styleZone}>
             <Play size="90" />
           </div>
         </div>
@@ -49,8 +54,8 @@ export default function ZoneClient({
         </div>
       )}
       <div className={styles.actionZone}>
-        <div style={{ marginBottom: '1rem' }}>
-          {localTime > 0 && (
+        {localTime > 0 && (
+          <div style={{ marginBottom: '1rem' }}>
             <Button
               label="New Shot"
               callback={() => {
@@ -59,8 +64,8 @@ export default function ZoneClient({
               type={ColorType.PRIMARY}
               size="lg"
             />
-          )}
-        </div>
+          </div>
+        )}
         <div className={styles.subAction}>
           {!isLocalPause && localTime > 0 ? (
             <div
@@ -97,6 +102,7 @@ export default function ZoneClient({
             {secondesToMinutes(localTime)}
           </TimeBloc>
         </div>
+        {localTime > 0 && <div className={styles.empty}></div>}
       </div>
     </>
   )

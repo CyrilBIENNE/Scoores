@@ -1,24 +1,54 @@
 .header {
   position: sticky;
   z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
   height: $header-height;
-  padding: 12px 0;
   top: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
   background-color: $color-dark;
   color: $color-gray;
 }
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .logo {
+  position: relative;
+  display: block;
   width: 108px;
+  height: 52px;
   line-height: 0;
   cursor: pointer;
 }
+
+.logoM {
+  @media (min-width: 400px) {
+    display: none;
+  }
+}
+
+.logoD {
+  display: none;
+  position: relative;
+  align-items: center;
+  margin-top: 1px;
+  width: 108px;
+  height: 52px;
+  @media (min-width: 400px) {
+    display: flex;
+  }
+}
 .gTitle {
+  font-size: 24px;
   color: $color-yellow;
+  font-weight: 500;
+  display: none;
+  @media screen and (min-width: 280px) {
+    display: block;
+    letter-spacing: 4px;
+  }
 }
 .icons {
   display: flex;
@@ -29,7 +59,9 @@
   a {
     color: $color-gray;
   }
-  cursor: pointer;
+  > * {
+    cursor: pointer;
+  }
   > *:hover {
     color: $color-yellow;
     a {
@@ -37,7 +69,7 @@
     }
   }
 }
-.wrapper {
+.wrapperOld {
   padding: 24px 24px 0;
   font-size: 18px;
   line-height: 24px;
@@ -51,6 +83,7 @@
     line-height: 20px;
   }
 }
+
 @media (min-width: $tablet-min-width) {
   .social {
     display: none;

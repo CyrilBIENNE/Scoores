@@ -1,5 +1,8 @@
-const title = 'Scoores !'
+const title = 'Scoores'
 const description = 'Scoores, une webapp qui fournit des outils pour noter les scores (billard, fléchettes, ...).'
+export const viewport = {
+  themeColor: '#333333',
+}
 
 export const defaultMetadata = {
   title,

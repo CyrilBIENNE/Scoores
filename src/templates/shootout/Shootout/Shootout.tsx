@@ -73,11 +73,11 @@ export default function Shootout({ config }: Props) {
         }
         break
       case SOUNDS.endLocalTime:
-        window.navigator.vibrate([300])
+        window.navigator.vibrate([700, 100, 100])
         if (!isMute) soundEndLocalTime()
         break
       case SOUNDS.endGame:
-        window?.navigator?.vibrate([600])
+        window?.navigator?.vibrate([600, 200, 600, 200, 600])
         if (!isMute) soundEndGame()
         break
       default:

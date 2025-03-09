@@ -1,0 +1,7 @@
+.reset {
+  margin-bottom: 12px;
+  cursor: pointer;
+  &:hover {
+    color: $color-yellow;
+  }
+}
