@@ -4,7 +4,7 @@ import type { Viewport } from 'next'
 import ShootoutProvider from 'templates/shootout/providers/ShootoutContext'
 
 export const viewport: Viewport = {
-  themeColor: '#ffb200',
+  themeColor: '#d19300',
 }
 
 const geistSans = Geist({
