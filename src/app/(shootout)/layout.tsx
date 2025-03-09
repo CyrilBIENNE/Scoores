@@ -12,7 +12,7 @@ const geistSans = Geist({
 })
 
 export const viewport: Viewport = {
-  themeColor: '#d19300',
+  themeColor: '#93733a',
 }
 
 export default function RootLayout({

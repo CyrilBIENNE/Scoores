@@ -3,8 +3,12 @@
   align-items: center;
   margin-bottom: 12px;
   cursor: pointer;
-  &:hover,
   &:active {
     color: $color-yellow;
+  }
+  @media screen and (min-width: $tablet-min-width) {
+    &:hover {
+      color: $color-yellow;
+    }
   }
 }

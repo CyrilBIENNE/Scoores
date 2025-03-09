@@ -6,7 +6,7 @@ import { useFunnel } from 'shared/clients/funnel/FunnelProvider'
 import useFunnelSteps from 'shared/clients/funnel/hooks/useFunnelSteps'
 import { shootoutConfig } from '../default.config'
 import Refresh from '@/icons/refresh'
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 
 type Props = {
   onEnded?: any
@@ -15,10 +15,8 @@ type Props = {
 export default function NewGameForm({ onEnded }: Props) {
   const { step, nav } = useFunnelSteps('funnel_shootout', steps)
   const { data: funnel, isLoading, setFunnel } = useFunnel()
-  const buttonRef = useRef<HTMLDivElement>(null)
 
   function reset() {
-    if (buttonRef?.current) buttonRef.current.blur()
     setFunnel({
       ...funnel,
       questions: {
@@ -48,7 +46,7 @@ export default function NewGameForm({ onEnded }: Props) {
   return (
     <>
       <h1>New Game</h1>
-      <div ref={buttonRef} className={styles.reset} onClick={reset} title="Recharger les valeurs par défaut">
+      <div className={styles.reset} onClick={reset} title="Recharger les valeurs par défaut">
         <Refresh /> <span>Recharger les valeurs par défaut</span>
       </div>
       <Funnel {...step} onNext={() => nav.onNext()} nav={nav} previous={'Précédent'} btnFullWidth={true} />
