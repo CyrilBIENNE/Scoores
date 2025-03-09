@@ -7,8 +7,8 @@ import Link from 'next/link'
 import MuteSound from '@/components/MuteSound/MuteSound'
 import useShootout from 'templates/shootout/providers/useShootout'
 import HeaderIcon from './components/HeaderIcon/HeaderIcon'
-import { GAME_CONFIGS } from 'configs/configs.type'
-import { useRouter } from 'next/navigation'
+import { GAME_CONFIGS, GameConfigType } from 'configs/configs.type'
+import { usePathname, useRouter } from 'next/navigation'
 import Image from 'next/image'
 import GameRules from 'templates/shootout/Shootout/blocs/GameRules/GameRules'
 
@@ -19,8 +19,14 @@ export default function Header() {
   const [isHelp, setIsHelp] = useState(false)
   const { isMute, setIsMute, isGameInProgress } = useShootout()
   const iconSize = '32px'
-  const currentGame = GAME_CONFIGS.shootout
   const router = useRouter()
+  const pathName = usePathname()
+  const currentGame: GameConfigType = GAME_CONFIGS[pathName.split('/')[1] as keyof typeof GAME_CONFIGS]
+  // const currentVersion: GameConfigVersion | undefined = currentGame?.versions?.find(
+  //   (version: any) => version.slug === pathName.split('/')[2]
+  // )
+
+  if (!currentGame) return null
 
   function newGame(isGameInProgress: boolean) {
     if (!isGameInProgress || (isGameInProgress && confirm('Voulez-vous abandonner la partie en cours ?')))

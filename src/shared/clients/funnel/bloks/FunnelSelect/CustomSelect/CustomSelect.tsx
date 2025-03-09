@@ -9,6 +9,7 @@ import useFunnelKey from 'shared/clients/funnel/hooks/useFunnelKey'
 
 type jsonType = {
   label: string
+  value?: any
 }
 
 type Props = {

@@ -16,9 +16,18 @@ export default function useFunnelValidator(questions: any): any {
     for (const question of questions) {
       // Si pas un input ou pas afficher
       if (!question.customKey || !dynamicCondition(question.if, { funnel })) continue
-
       const value = data[question.customKey] ?? ''
-      if (question.required && value == '') allValid = false
+
+      if ('funnel_blok_input_array' == question.component) {
+        if (question.required && (!value || value.length == 0)) {
+          allValid = false
+        } else if (value?.some((v: any) => !v || v == '')) {
+          allValid = false
+        }
+      } else if (question.required && value == '') {
+        allValid = false
+      }
+
       if (question.errors) {
         for (const customError of question.errors) {
           if (customError.regex) {

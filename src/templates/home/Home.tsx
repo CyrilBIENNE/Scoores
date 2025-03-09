@@ -2,7 +2,7 @@ import Link from 'next/link'
 import styles from './Home.module.scss'
 import Play from '@/icons/play'
 import Image from 'next/image'
-import { SITE_VERSION } from 'configs/configs.type'
+import { GAME_CONFIGS, SITE_VERSION } from 'configs/configs.type'
 
 export default function Home() {
   return (
@@ -15,9 +15,15 @@ export default function Home() {
         </div>
         <ul>
           <li>
-            <Link className={styles.app} href={'/shootout'} title="Shootout!">
+            <Link className={styles.app} href={GAME_CONFIGS.shootout.slug} title="Shootout">
               <Play size="40" />
               <span>Play Shootout</span>
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.app} href={GAME_CONFIGS.darts.slug} title="Darts">
+              <Play size="40" />
+              <span>Play Darts</span>
             </Link>
           </li>
         </ul>

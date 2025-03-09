@@ -13,6 +13,7 @@ import FunnelHiddenInput from './bloks/FunnelHiddenInput/FunnelHiddenInput'
 import { useFunnel } from 'shared/clients/funnel/FunnelProvider'
 import { dynamicCondition } from '@/utils/basic/dynamicData'
 import FunnelPhone from 'shared/clients/funnel/bloks/FunnelPhone/FunnelPhone'
+import FunnelArrayInput from './bloks/FunnelArrayInput/FunnelArrayInput'
 
 type Props = {
   next: string
@@ -37,6 +38,8 @@ const Funnel = (props: Props) => {
         return <FunnelTitle {...attr} key={i} />
       case 'funnel_blok_input':
         return <FunnelInput {...attr} key={i} />
+      case 'funnel_blok_input_array':
+        return <FunnelArrayInput {...attr} key={i} />
       case 'funnel_blok_phone':
         return <FunnelPhone {...attr} key={i} />
       case 'funnel_blok_input_hidden':

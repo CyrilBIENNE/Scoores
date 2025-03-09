@@ -1,0 +1,40 @@
+.addItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  margin-bottom: 13px;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.item {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  > div:first-child {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.icon {
+  width: 32px;
+  line-height: 1em;
+  cursor: pointer;
+  &:active {
+    color: $color-yellow;
+  }
+  @media screen and (min-width: $tablet-min-width) {
+    &:hover {
+      color: $color-yellow;
+    }
+  }
+}

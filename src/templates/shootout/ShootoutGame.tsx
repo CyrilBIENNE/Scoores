@@ -4,7 +4,7 @@ import styles from './ShootoutGame.module.scss'
 import useShootout from './providers/useShootout'
 import Shootout from './Shootout/Shootout'
 import { useState } from 'react'
-import ShootoutForm from './forms/ShootoutParamatersForm'
+import ShootoutForm from './forms/ShootoutForm'
 import { ShootoutGameConfig } from './Shootout/Shootout.type'
 
 export default function ShootoutGame() {

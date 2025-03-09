@@ -6,6 +6,7 @@ export function dynamicData(stringJS: string, customValues: CustomValues = {}): 
   if (!stringJS) return null
 
   try {
+    if (typeof stringJS == 'object') return stringJS
     const F = new Function(...Object.keys(customValues), 'return ' + stringJS)
     return F(...Object.values(customValues))
   } catch (error) {
