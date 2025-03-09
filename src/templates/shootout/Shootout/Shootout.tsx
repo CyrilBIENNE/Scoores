@@ -66,18 +66,18 @@ export default function Shootout({ config }: Props) {
         if (!isMute) soundLocalTimeAlert()
         break
       case SOUNDS.changeMaxtime:
-        window?.navigator?.vibrate([200, 200, 200, 200, 200])
+        window?.navigator?.vibrate([200, 100, 200, 100, 200])
         if (!isMute) {
           soundChangeMaxtime()
           setTimeout(() => soundChangeMaxtime(), 200)
         }
         break
       case SOUNDS.endLocalTime:
-        window.navigator.vibrate([700, 100, 100])
+        window.navigator.vibrate([700, 100, 300])
         if (!isMute) soundEndLocalTime()
         break
       case SOUNDS.endGame:
-        window?.navigator?.vibrate([600, 200, 600, 200, 600])
+        window?.navigator?.vibrate([700, 200, 700, 200, 700])
         if (!isMute) soundEndGame()
         break
       default:
