@@ -79,7 +79,7 @@ export default function ZoneClient({
               }}
               data-failed={localTime == 0}
             >
-              <Pause size="30" />
+              <Pause size="70" />
             </div>
           ) : (
             localTime > 0 && (
@@ -89,18 +89,30 @@ export default function ZoneClient({
                   setIsLocalPause(false)
                 }}
               >
-                <Play size="30" />
+                <Play size="70" />
               </div>
             )
           )}
-          <TimeBloc
-            isAlert={localTime <= 5}
-            isEnded={localTime <= 0 ? true : false}
-            size="lg"
-            style={{ marginLeft: -4 }}
-          >
-            {secondesToMinutes(localTime)}
-          </TimeBloc>
+          <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', gap: 24 }}>
+            {localTime <= 0 && (
+              <Button
+                label="New Shot"
+                callback={() => {
+                  onNewShot()
+                }}
+                type={ColorType.PRIMARY}
+                size="lg"
+              />
+            )}
+            <TimeBloc
+              isAlert={localTime <= 5}
+              isEnded={localTime <= 0 ? true : false}
+              size="lg"
+              style={{ marginLeft: -4 }}
+            >
+              {secondesToMinutes(localTime)}
+            </TimeBloc>
+          </div>
         </div>
         {localTime > 0 && <div className={styles.empty}></div>}
       </div>

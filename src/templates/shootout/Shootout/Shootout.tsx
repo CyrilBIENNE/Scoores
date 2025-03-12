@@ -153,9 +153,9 @@ export default function Shootout({ config }: Props) {
         if (prev == shootoutConfig.S_AlertLocalTime + 1) playSound(SOUNDS.localTimeAlert)
         if (prev == 1) playSound(SOUNDS.endLocalTime)
 
-        return prev - 1
+        return prev - 0.1
       })
-    }, 1000)
+    }, 100)
     return () => clearInterval(timer)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLocalPause, isMute])
@@ -163,8 +163,8 @@ export default function Shootout({ config }: Props) {
   useEffect(() => {
     if (totalTime <= 0 || isTotalPause) return
     const timerTotal = setInterval(() => {
-      setTotalTime((prevTime) => prevTime - 1)
-    }, 1000)
+      setTotalTime((prevTime) => prevTime - 0.1)
+    }, 100)
     if (totalTime <= config.totalTimeChangeLocal && maxLocalTime != config.localTime2) {
       playSound(SOUNDS.changeMaxtime)
       setMaxLocalTime(config.localTime2)
@@ -198,7 +198,7 @@ export default function Shootout({ config }: Props) {
             <ZoneClient
               player={player1}
               currentPlayer={currentPlayer}
-              localTime={localTime}
+              localTime={Math.ceil(localTime)}
               isLocalPause={isLocalPause}
               setIsLocalPause={setIsLocalPause}
               onChangePlayer={onChangePlayer}
@@ -213,7 +213,7 @@ export default function Shootout({ config }: Props) {
             <ZoneClient
               player={player2}
               currentPlayer={currentPlayer}
-              localTime={localTime}
+              localTime={Math.ceil(localTime)}
               isLocalPause={isLocalPause}
               setIsLocalPause={setIsLocalPause}
               onChangePlayer={onChangePlayer}
@@ -231,7 +231,7 @@ export default function Shootout({ config }: Props) {
             <WakeLock />
             <div className={styles.time}>
               <RoundedBloc isAlert={totalTime <= shootoutConfig.S_AlertTotalTime}>
-                <strong>Total</strong> <span className={styles.chrono}>{secondesToMinutes(totalTime)}</span>
+                <strong>Total</strong> <span className={styles.chrono}>{secondesToMinutes(Math.ceil(totalTime))}</span>
               </RoundedBloc>
             </div>
             {currentPlayer && (
