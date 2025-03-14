@@ -1,7 +1,6 @@
 'use client'
 
 import styles from './Zone.module.scss'
-import Pause from '@/icons/pause'
 import Play from '@/icons/play'
 import Cri from '@/icons/cri'
 import TimeBloc from '../TimeBlock/TimeBlock'
@@ -67,32 +66,6 @@ export default function ZoneClient({
           </div>
         )}
         <div className={styles.subAction}>
-          {!isLocalPause && localTime > 0 ? (
-            <div
-              className={styles.action}
-              onClick={() => {
-                if (localTime > 0) {
-                  setIsLocalPause(true)
-                } else {
-                  return false
-                }
-              }}
-              data-failed={localTime == 0}
-            >
-              <Pause size="70" />
-            </div>
-          ) : (
-            localTime > 0 && (
-              <div
-                className={styles.action}
-                onClick={() => {
-                  setIsLocalPause(false)
-                }}
-              >
-                <Play size="70" />
-              </div>
-            )
-          )}
           <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', gap: 24 }}>
             {localTime <= 0 && (
               <Button
@@ -109,6 +82,11 @@ export default function ZoneClient({
               isEnded={localTime <= 0 ? true : false}
               size="lg"
               style={{ marginLeft: -4 }}
+              status={localTime == 0 ? 'ended' : isLocalPause ? 'paused' : 'running'}
+              callback={() => {
+                // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+                localTime > 0 ? setIsLocalPause(!isLocalPause) : null
+              }}
             >
               {secondesToMinutes(localTime)}
             </TimeBloc>
