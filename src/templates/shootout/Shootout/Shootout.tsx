@@ -74,7 +74,7 @@ export default function Shootout({ config }: Props) {
         }
         break
       case SOUNDS.endLocalTime:
-        window.navigator.vibrate([700, 100, 300])
+        window?.navigator?.vibrate([700, 100, 300])
         if (!isMute) soundEndLocalTime()
         break
       case SOUNDS.endGame:
@@ -150,10 +150,13 @@ export default function Shootout({ config }: Props) {
 
     const timer = setInterval(() => {
       setLocalTime((prev) => {
-        if (prev == shootoutConfig.S_AlertLocalTime + 1) playSound(SOUNDS.localTimeAlert)
-        if (prev == 1) playSound(SOUNDS.endLocalTime)
+        prev = (prev * 10 - 1) / 10
+        if (prev <= shootoutConfig.S_AlertLocalTime && !prev.toString().split('.')[1] && prev != 0) {
+          playSound(SOUNDS.localTimeAlert)
+        }
+        if (prev == 0) playSound(SOUNDS.endLocalTime)
 
-        return prev - 0.1
+        return prev
       })
     }, 100)
     return () => clearInterval(timer)
