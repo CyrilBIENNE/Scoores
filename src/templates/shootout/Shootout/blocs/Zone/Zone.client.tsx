@@ -92,7 +92,6 @@ export default function ZoneClient({
             </TimeBloc>
           </div>
         </div>
-        {localTime > 0 && <div className={styles.empty}></div>}
       </div>
     </>
   )
