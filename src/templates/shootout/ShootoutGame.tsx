@@ -27,6 +27,7 @@ export default function ShootoutGame() {
 
   useEffect(() => {
     setHelpType(HelpTypes.shootout)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (isShootoutloading) return <>Loading...</>
