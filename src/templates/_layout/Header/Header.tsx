@@ -34,8 +34,8 @@ export default function Header() {
   }
 
   useEffect(() => {
-    if (!isLoading) {
-    }
+    if (!isLoading) setIsHelp(false)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [helpType])
 
   return (
