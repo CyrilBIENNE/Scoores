@@ -88,13 +88,6 @@
     color: $color-yellow;
   }
 }
-.empty {
-  height: 68px;
-  width: 68px;
-  @media (max-height: 560px) {
-    display: none;
-  }
-}
 
 .subAction {
   display: inline-flex;

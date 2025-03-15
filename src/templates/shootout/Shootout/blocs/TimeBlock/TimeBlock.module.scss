@@ -5,8 +5,7 @@
   justify-content: center;
   padding: 5px 15px;
   color: white;
-  font-size: 72px;
-  //width: 220px;
+  font-size: 56px;
   border: 5px solid #fff;
   border-radius: 50px;
 
@@ -15,13 +14,14 @@
     border-color: red;
   }
 
-  &[data-is-ended='true'] {
-    font-size: 72px;
+  svg {
+    margin: 0 -10px;
   }
 }
 
 .time {
   display: block;
-  padding-left: 12px;
-  width: 220px;
+  text-align: center;
+  margin-right: -6px;
+  width: 180px;
 }
