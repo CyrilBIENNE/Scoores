@@ -1,14 +1,19 @@
 import styles from './TimeBlock.module.scss'
 
+import Pause from '@/icons/pause'
+import Play from '@/icons/play'
+import Cri from '@/icons/cri'
+
 type Props = {
   isAlert?: boolean
+  status?: 'ended' | 'paused' | 'running'
   isEnded?: boolean
   children?: React.ReactNode
   callback?: () => void
   size?: 'sm' | 'md' | 'lg'
   style?: React.CSSProperties
 }
-export default function TimeBloc({ children, isAlert, isEnded, callback, size, style }: Props) {
+export default function TimeBloc({ children, status, isAlert, isEnded, callback, size, style }: Props) {
   return (
     <div
       className={styles.timeBlock}
@@ -18,7 +23,8 @@ export default function TimeBloc({ children, isAlert, isEnded, callback, size, s
       onClick={() => callback && callback()}
       style={style}
     >
-      {children}
+      {status == 'running' ? <Pause size="70" /> : status == 'paused' ? <Play size="70" /> : <Cri size="70" />}
+      <div className={styles.time}>{children}</div>
     </div>
   )
 }
