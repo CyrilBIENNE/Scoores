@@ -1,4 +1,4 @@
-import { ShootoutGamePlayer } from '../../../providers/Shootout.type'
+import { ShootoutGamePlayer } from 'templates/shootout/Shootout/Shootout.type'
 import styles from './Zone.module.scss'
 import Image from 'next/image'
 

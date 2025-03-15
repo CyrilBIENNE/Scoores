@@ -13,3 +13,21 @@ export type ShootoutGameConfig = {
   localTime2: number
   totalTimeChangeLocal: number
 }
+
+export interface ShootoutGame {
+  player1: ShootoutGamePlayer
+  player2: ShootoutGamePlayer
+  totalShots: number
+  totalTime: number
+  winner: ShootoutGamePlayer
+  config: ShootoutGameConfig
+}
+
+export interface ShootoutGamePlayer {
+  number: number
+  name: string
+  totalTime: number
+  shots: number
+  turns: number
+  win?: boolean
+}

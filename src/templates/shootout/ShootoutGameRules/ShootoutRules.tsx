@@ -1,8 +1,6 @@
-import styles from './GameRules.module.scss'
-
-export default function GameRules() {
+export default function ShootoutRules() {
   return (
-    <div className={styles.help}>
+    <>
       <h1>Règles du Shootout</h1>
       <ul>
         <li>Les joueurs effectuent un « lag » pour déterminer celui qui fera la casse.</li>
@@ -26,6 +24,6 @@ export default function GameRules() {
           lag », cette bille bleue est placée sur sa mouche et la bille de choc dans le « D ».
         </li>
       </ul>
-    </div>
+    </>
   )
 }

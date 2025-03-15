@@ -1,7 +1,7 @@
 import 'shared/styles/app.scss'
 import { Geist } from 'next/font/google'
 import type { Viewport } from 'next'
-import ShootoutProvider from 'templates/shootout/providers/ShootoutContext'
+import AppProvider from 'templates/_layout/AppContext/AppContext'
 
 export const viewport: Viewport = {
   themeColor: '#93733a',
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={geistSans.className}>
       <body>
-        <ShootoutProvider>{children}</ShootoutProvider>
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
   )
