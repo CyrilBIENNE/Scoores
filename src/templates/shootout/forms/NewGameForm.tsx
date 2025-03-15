@@ -4,9 +4,9 @@ import styles from './NewGameForm.module.scss'
 import Funnel from 'shared/clients/funnel/Funnel'
 import { useFunnel } from 'shared/clients/funnel/FunnelProvider'
 import useFunnelSteps from 'shared/clients/funnel/hooks/useFunnelSteps'
-import { shootoutConfig } from '../default.config'
 import Refresh from '@/icons/refresh'
 import { useEffect } from 'react'
+import { shootoutConfig } from '../shootout.config'
 
 type Props = {
   onEnded?: any

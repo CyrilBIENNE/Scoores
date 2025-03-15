@@ -5,17 +5,16 @@ import styles from '../ShootoutGame.module.scss'
 import Pause from '@/icons/pause'
 import Play from '@/icons/play'
 import { secondesToMinutes } from '@/utils/format/secondesToMinutes'
-import useShootout from '../providers/useShootout'
-import { ShootoutGamePlayer } from '../providers/Shootout.type'
-import Zone from './blocs/Zone/Zone'
-import ZoneClient from './blocs/Zone/Zone.client'
+import Zone from '../blocs/Zone/Zone'
+import ZoneClient from '../blocs/Zone/Zone.client'
 import useSound from 'use-sound'
-import GameReport from './blocs/GameReport/GameReport'
+import GameReport from '../blocs/GameReport/GameReport'
 import RoundedBloc from '@/components/RoundedBloc/RoundedBloc'
-import { shootoutConfig } from '../default.config'
-import { ShootoutGameConfig } from './Shootout.type'
+import { shootoutConfig } from '../shootout.config'
+import { ShootoutGameConfig, ShootoutGamePlayer } from './Shootout.type'
 import WakeLock from '@/components/WakeLock/WakeLock'
 import Button from '@/blocs/basic/Button/Button'
+import useAppData from 'templates/_layout/AppContext/useAppData'
 
 type Props = {
   config: ShootoutGameConfig
@@ -38,7 +37,7 @@ export default function Shootout({ config }: Props) {
   const [currentShotTime, setCurrentShotTime] = useState(config.localTime1)
   const [currentPlayer, setCurrentPlayer] = useState<ShootoutGamePlayer | undefined>(undefined)
   const [timestamp, setTimestamp] = useState<number | undefined>(undefined)
-  const { isMute, setIsGameInProgress, isLoading } = useShootout()
+  const { isMute, setIsGameInProgress, isLoading } = useAppData()
 
   const [player1, setPlayer1] = useState<ShootoutGamePlayer>({
     number: 1,

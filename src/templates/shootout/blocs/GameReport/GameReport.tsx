@@ -1,6 +1,6 @@
 import { secondesToMinutes } from '@/utils/format/secondesToMinutes'
 import styles from './GameReport.module.scss'
-import { ShootoutGamePlayer } from 'templates/shootout/providers/Shootout.type'
+import { ShootoutGamePlayer } from 'templates/shootout/Shootout/Shootout.type'
 
 type Props = {
   player: ShootoutGamePlayer

@@ -5,19 +5,21 @@ import Add from '@/icons/add'
 import LogoIcon from '@/icons/logo-icon'
 import Link from 'next/link'
 import MuteSound from '@/components/MuteSound/MuteSound'
-import useShootout from 'templates/shootout/providers/useShootout'
 import HeaderIcon from './components/HeaderIcon/HeaderIcon'
 import { GAME_CONFIGS } from 'configs/configs.type'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-import GameRules from 'templates/shootout/Shootout/blocs/GameRules/GameRules'
-
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Panel from '@/components/layout/Panel/Panel'
+import useAppData from '../AppContext/useAppData'
+import dynamic from 'next/dynamic'
+import { HelpTypes } from './Help.type'
+
+const ShootoutGameRules = dynamic(() => import('templates/shootout/ShootoutGameRules/ShootoutGameRules'))
 
 export default function Header() {
   const [isHelp, setIsHelp] = useState(false)
-  const { isMute, setIsMute, isGameInProgress } = useShootout()
+  const { isLoading, isMute, setIsMute, isGameInProgress, helpType } = useAppData()
   const iconSize = '32px'
   const currentGame = GAME_CONFIGS.shootout
   const router = useRouter()
@@ -30,6 +32,11 @@ export default function Header() {
     if (!isGameInProgress || (isGameInProgress && confirm('Voulez-vous abandonner la partie en cours ?')))
       router.push('/')
   }
+
+  useEffect(() => {
+    if (!isLoading) {
+    }
+  }, [helpType])
 
   return (
     <>
@@ -55,8 +62,8 @@ export default function Header() {
           </div>
         </div>
       </header>
-      <Panel onClose={() => setIsHelp(false)} isOpen={isHelp}>
-        <GameRules />
+      <Panel onClose={() => setIsHelp(false)} isOpen={!!helpType && isHelp}>
+        {helpType == HelpTypes.shootout && <ShootoutGameRules />}
       </Panel>
     </>
   )

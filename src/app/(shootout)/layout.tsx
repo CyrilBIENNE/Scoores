@@ -2,7 +2,7 @@ import 'shared/styles/app.scss'
 import type { Viewport } from 'next'
 import { Geist } from 'next/font/google'
 import Header from '../../templates/_layout/Header/Header'
-import ShootoutProvider from 'templates/shootout/providers/ShootoutContext'
+import AppProvider from 'templates/_layout/AppContext/AppContext'
 
 const geistSans = Geist({
   weight: ['400', '500', '700', '900'],
@@ -23,10 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={geistSans.className}>
       <body>
-        <ShootoutProvider>
+        <AppProvider>
           <Header />
           {children}
-        </ShootoutProvider>
+        </AppProvider>
       </body>
     </html>
   )

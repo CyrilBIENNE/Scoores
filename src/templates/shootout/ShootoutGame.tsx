@@ -1,15 +1,17 @@
 'use client'
 
 import styles from './ShootoutGame.module.scss'
-import useShootout from './providers/useShootout'
 import Shootout from './Shootout/Shootout'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ShootoutForm from './forms/ShootoutParamatersForm'
 import { ShootoutGameConfig } from './Shootout/Shootout.type'
+import useAppData from '../_layout/AppContext/useAppData'
+import { HelpTypes } from 'templates/_layout/Header/Help.type'
 
 export default function ShootoutGame() {
-  const { isLoading: isShootoutloading } = useShootout()
+  const { isLoading: isShootoutloading } = useAppData()
   const [gameConfig, setGameConfig] = useState<ShootoutGameConfig | undefined>(undefined)
+  const { setHelpType } = useAppData()
 
   const onEnded = (res: any) => {
     const q = res?.questions
@@ -22,6 +24,10 @@ export default function ShootoutGame() {
       totalTimeChangeLocal: q.totalTimeChangeLocal,
     })
   }
+
+  useEffect(() => {
+    setHelpType(HelpTypes.shootout)
+  }, [])
 
   if (isShootoutloading) return <>Loading...</>
 

@@ -7,7 +7,7 @@ import TimeBloc from '../TimeBlock/TimeBlock'
 import Button from '@/blocs/basic/Button/Button'
 import { ColorType } from 'shared/helpers/color.type'
 import { secondesToMinutes } from '@/utils/format/secondesToMinutes'
-import { ShootoutGamePlayer } from '../../../providers/Shootout.type'
+import { ShootoutGamePlayer } from '../../Shootout.type'
 
 type Props = {
   player: ShootoutGamePlayer

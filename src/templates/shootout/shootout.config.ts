@@ -1,6 +1,4 @@
-import { ShootoutConfig } from './providers/Shootout.type'
-
-export const shootoutConfig: ShootoutConfig = {
+export const shootoutConfig = {
   version: '1.0.1',
   name: 'Default',
   S_TotalTime: 600,

@@ -49,7 +49,7 @@ function ShootoutFormContent({ children, onEnded }: Props) {
   )
 }
 
-export function useShootoutForm() {
+export function useAppDataForm() {
   const data = useContext(ShootoutFormContext)
   return data
 }

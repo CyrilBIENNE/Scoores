@@ -1,0 +1,43 @@
+.timeBlock {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 15px;
+  color: white;
+  font-size: 56px;
+  border: 5px solid #fff;
+  border-radius: 50px;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &[data-alert='true'] {
+    color: red;
+    border-color: red;
+  }
+
+  svg {
+    margin: 0 -5px;
+  }
+
+  &[data-alert='false'] {
+    &:active {
+      transform: scale(0.9);
+      color: $color-yellow;
+      border-color: $color-yellow;
+    }
+    @media screen and (min-width: 768px) {
+      &:hover {
+        color: $color-yellow;
+        border-color: $color-yellow;
+      }
+    }
+  }
+}
+
+.time {
+  display: block;
+  text-align: center;
+  min-width: 162px;
+  margin-right: 12px;
+}
