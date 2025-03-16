@@ -24,7 +24,7 @@ export default function Home() {
         </ul>
         <div className={styles.footer}>
           <div>
-            P<strong style={{ fontWeight: 900, opacity: 0.5 }}>o</strong>wered by
+            P<strong style={{ fontWeight: 900, opacity: 0.4 }}>o</strong>wered by
           </div>
           <FlameMini />
           <div>Cyril</div>

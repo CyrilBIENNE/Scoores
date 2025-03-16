@@ -3,6 +3,7 @@
   flex: 1;
   width: 100%;
   position: relative;
+  transition: flex 500ms;
 
   .bg {
     position: absolute;
@@ -48,6 +49,7 @@
   }
 
   &[data-active='false'] {
+    flex: 0 0 60px;
     .bg {
       filter: grayscale(100%) brightness(0.25);
     }

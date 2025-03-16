@@ -34,20 +34,22 @@
   width: 100%;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
   height: 100%;
+  gap: 3px;
 }
 
 .middle {
-  position: relative;
+  position: fixed;
   z-index: 5;
-  top: 50%;
   flex-wrap: wrap;
   transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 140%;
+  left: 0;
+  right: 0;
+  bottom: 12px;
 
   .time {
     display: flex;
@@ -76,4 +78,17 @@
     color: $color-yellow;
     padding: 12px;
   }
+}
+
+.gameButtons {
+  position: absolute;
+  z-index: 6;
+  margin: auto;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
 }
