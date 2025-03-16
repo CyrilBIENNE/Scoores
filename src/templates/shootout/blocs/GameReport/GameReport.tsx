@@ -15,6 +15,10 @@ export default function GameReport({ player }: Props) {
             <td>{secondesToMinutes(Math.round(player.totalTime), true)}</td>
           </tr>
           <tr>
+            <td>Tours</td>
+            <td>{player.turns}</td>
+          </tr>
+          <tr>
             <td>{`${player.shots} Shot${player.shots > 1 ? 's' : ''}`}</td>
             <td>{player.totalTime > 0 ? Math.round((player.shots * 100) / player.totalTime) / 100 : 0} s/Shot</td>
           </tr>

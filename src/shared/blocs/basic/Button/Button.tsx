@@ -4,7 +4,7 @@ import { ButtonProps } from './Button.type'
 import { ColorType } from 'shared/helpers/color.type'
 
 export default function Button(props: ButtonProps) {
-  const { icon, label, children, target, rel, link, callback, disabled, fullWidth, isCenter, size, type } = props
+  const { icon, label, children, target, rel, link, callback, disabled, fullWidth, isCenter, size, type, style } = props
 
   const attributes: any = {
     className: 'btn btn-' + (type ?? ColorType.PRIMARY) + (icon ? ' ' + (icon && ' btn-icon') : ''),
@@ -14,6 +14,7 @@ export default function Button(props: ButtonProps) {
     'data-disabled': disabled ?? false,
     'data-full-width': fullWidth ?? false,
     'data-size': size ?? 'md',
+    style: style ?? {},
   }
   if (isCenter) attributes['style'] = { marginLeft: 'auto', marginRight: 'auto' }
   if (target) attributes['target'] = target
@@ -34,7 +35,7 @@ export default function Button(props: ButtonProps) {
   }
 
   return (
-    <Link href={link ?? '#'} {...attributes}>
+    <Link href={link ?? '#'} {...attributes} style={style}>
       {content}
     </Link>
   )

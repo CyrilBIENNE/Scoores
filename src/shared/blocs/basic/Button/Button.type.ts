@@ -13,4 +13,5 @@ export type ButtonProps = {
   disabled?: boolean
   isCenter?: boolean
   size?: 'sm' | 'md' | 'lg'
+  style?: React.CSSProperties
 }
