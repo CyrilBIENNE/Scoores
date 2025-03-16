@@ -5,7 +5,7 @@ import Image from 'next/image'
 type Props = {
   children: React.ReactNode
   color: string
-  isActive: boolean
+  isActive: string
   player: ShootoutGamePlayer
 }
 export default function Zone({ color, children, isActive, player }: Props) {

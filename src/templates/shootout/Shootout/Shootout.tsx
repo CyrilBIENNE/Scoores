@@ -15,6 +15,7 @@ import { ShootoutGameConfig, ShootoutGamePlayer } from './Shootout.type'
 import WakeLock from '@/components/WakeLock/WakeLock'
 import Button from '@/blocs/basic/Button/Button'
 import useAppData from 'templates/_layout/AppContext/useAppData'
+import GameButtons from '../blocs/GameButtons/GameButtons'
 
 type Props = {
   config: ShootoutGameConfig
@@ -106,9 +107,9 @@ export default function Shootout({ config }: Props) {
     }
   }
 
-  function onChangePlayer(player: ShootoutGamePlayer) {
+  function onChangePlayer(player?: ShootoutGamePlayer) {
     manageTimestamp()
-    setCurrentPlayer(player)
+    setCurrentPlayer(player ?? (currentPlayer?.number == 2 ? player1 : player2))
   }
 
   const onNewShot = () => {
@@ -194,8 +195,22 @@ export default function Shootout({ config }: Props) {
   if (isLoading) return <div>Chargement...</div>
   return (
     <div className={styles.shootout}>
+      <div className={styles.gameButtons}>
+        <GameButtons
+          currentPlayer={currentPlayer}
+          localTime={Math.ceil(localTime)}
+          isLocalPause={isLocalPause}
+          setIsLocalPause={setIsLocalPause}
+          onChangePlayer={onChangePlayer}
+          onNewShot={onNewShot}
+        />
+      </div>
       <div className={styles.zones}>
-        <Zone color="blue" isActive={currentPlayer?.number == player1.number} player={player1}>
+        <Zone
+          color="blue"
+          isActive={!currentPlayer ? 'off' : currentPlayer?.number == player1.number ? 'true' : 'false'}
+          player={player1}
+        >
           {currentPlayer || !isMatchEnded ? (
             <ZoneClient
               player={player1}
@@ -210,7 +225,11 @@ export default function Shootout({ config }: Props) {
             <GameReport player={player1} />
           )}
         </Zone>
-        <Zone color="red" isActive={currentPlayer?.number == player2.number} player={player2}>
+        <Zone
+          color="red"
+          isActive={!currentPlayer ? 'off' : currentPlayer?.number == player2.number ? 'true' : 'false'}
+          player={player2}
+        >
           {!isMatchEnded ? (
             <ZoneClient
               player={player2}
