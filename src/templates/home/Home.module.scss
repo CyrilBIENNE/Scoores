@@ -34,3 +34,14 @@
     border-color: #777;
   }
 }
+
+.footer {
+  position: fixed;
+  bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.2);
+}

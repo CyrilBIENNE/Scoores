@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import styles from './Home.module.scss'
 import Play from '@/icons/play'
+import FlameMini from '@/icons/flame-mini'
 import Image from 'next/image'
 import { SITE_VERSION } from 'configs/configs.type'
 
@@ -21,6 +22,13 @@ export default function Home() {
             </Link>
           </li>
         </ul>
+        <div className={styles.footer}>
+          <div>
+            P<strong style={{ fontWeight: 900, opacity: 0.5 }}>o</strong>wered by
+          </div>
+          <FlameMini />
+          <div>Cyril</div>
+        </div>
       </div>
     </div>
   )
