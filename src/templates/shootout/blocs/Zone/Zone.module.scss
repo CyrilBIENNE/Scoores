@@ -26,12 +26,13 @@
   .player {
     position: absolute;
     z-index: 3;
+    top: 18px;
+    left: 6px;
     font-size: 54px;
     font-weight: 900;
     text-transform: uppercase;
     color: $color-white;
     opacity: 0.2;
-    padding: 12px 6px;
     @media screen and (max-width: 450px) {
       font-size: 38px;
     }
@@ -67,9 +68,6 @@
   }
   &[data-color='red'] {
     .timer {
-      bottom: 0;
-    }
-    .player {
       bottom: 0;
     }
     .c {

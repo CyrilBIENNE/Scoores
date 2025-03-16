@@ -246,13 +246,13 @@ export default function Shootout({ config }: Props) {
         </Zone>
       </div>
 
-      <div className={styles.middle}>
+      <div className={styles.middle} data-running={!!currentPlayer}>
         {!isMatchEnded ? (
           <>
             <WakeLock />
             <div className={styles.time}>
               <RoundedBloc isAlert={totalTime <= shootoutConfig.S_AlertTotalTime}>
-                <strong>Total</strong> <span className={styles.chrono}>{secondesToMinutes(Math.ceil(totalTime))}</span>
+                <span className={styles.chrono}>{secondesToMinutes(Math.ceil(totalTime))}</span>
               </RoundedBloc>
             </div>
             {currentPlayer && (
@@ -269,10 +269,6 @@ export default function Shootout({ config }: Props) {
           </>
         ) : (
           <>
-            <RoundedBloc style={{ backgroundColor: '#FFF', fontWeight: 600 }}>
-              Match terminé | {Math.max(player1.turns, player2.turns)} tours
-            </RoundedBloc>
-
             <Button callback={() => window.location.reload()} label="Nouvelle partie" />
           </>
         )}

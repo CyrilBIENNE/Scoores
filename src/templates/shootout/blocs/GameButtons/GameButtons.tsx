@@ -34,6 +34,7 @@ export default function GameButtons({
           callback={() => onChangePlayer()}
           type={ColorType.PRIMARY}
           size="lg"
+          data-full-width={true}
         />
       )}
       <TimeBloc
@@ -57,6 +58,7 @@ export default function GameButtons({
           }}
           type={ColorType.PRIMARY}
           size="lg"
+          data-full-width={true}
         />
       )}
     </div>
