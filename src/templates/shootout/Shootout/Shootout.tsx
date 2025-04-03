@@ -62,25 +62,24 @@ export default function Shootout({ config }: Props) {
   const [soundEndGame] = useSound('/sounds/bell-drum_c_major.mp3')
 
   function playSound(soundName: SOUNDS) {
-    if (!canVibrate) return
     switch (soundName) {
       case SOUNDS.localTimeAlert:
-        window?.navigator?.vibrate([200])
+        if (canVibrate) window?.navigator?.vibrate([200])
         if (!isMute) soundLocalTimeAlert()
         break
       case SOUNDS.changeMaxtime:
-        window?.navigator?.vibrate([200, 100, 200, 100, 200])
+        if (canVibrate) window?.navigator?.vibrate([200, 100, 200, 100, 200])
         if (!isMute) {
           soundChangeMaxtime()
           setTimeout(() => soundChangeMaxtime(), 200)
         }
         break
       case SOUNDS.endLocalTime:
-        window?.navigator?.vibrate([700, 100, 300])
+        if (canVibrate) window?.navigator?.vibrate([700, 100, 300])
         if (!isMute) soundEndLocalTime()
         break
       case SOUNDS.endGame:
-        window?.navigator?.vibrate([700, 200, 700, 200, 700])
+        if (canVibrate) window?.navigator?.vibrate([700, 200, 700, 200, 700])
         if (!isMute) soundEndGame()
         break
       default:
