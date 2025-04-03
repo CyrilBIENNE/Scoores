@@ -39,6 +39,7 @@ export default function Shootout({ config }: Props) {
   const [currentPlayer, setCurrentPlayer] = useState<ShootoutGamePlayer | undefined>(undefined)
   const [timestamp, setTimestamp] = useState<number | undefined>(undefined)
   const { isMute, setIsGameInProgress, isLoading } = useAppData()
+  const canVibrate = window?.navigator?.vibrate
 
   const [player1, setPlayer1] = useState<ShootoutGamePlayer>({
     number: 1,
@@ -61,6 +62,7 @@ export default function Shootout({ config }: Props) {
   const [soundEndGame] = useSound('/sounds/bell-drum_c_major.mp3')
 
   function playSound(soundName: SOUNDS) {
+    if (!canVibrate) return
     switch (soundName) {
       case SOUNDS.localTimeAlert:
         window?.navigator?.vibrate([200])
