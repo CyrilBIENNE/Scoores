@@ -39,7 +39,7 @@ export default function Shootout({ config }: Props) {
   const [currentPlayer, setCurrentPlayer] = useState<ShootoutGamePlayer | undefined>(undefined)
   const [timestamp, setTimestamp] = useState<number | undefined>(undefined)
   const { isMute, setIsGameInProgress, isLoading } = useAppData()
-  const canVibrate = window?.navigator?.vibrate
+  const canVibrate = typeof window?.navigator?.vibrate == 'function'
 
   const [player1, setPlayer1] = useState<ShootoutGamePlayer>({
     number: 1,
