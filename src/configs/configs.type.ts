@@ -6,3 +6,4 @@ export const GAME_CONFIGS = {
 }
 
 export const SITE_VERSION = '1.0.3'
+
