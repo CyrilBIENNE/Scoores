@@ -13,7 +13,10 @@ export default function Zone({ color, children, isActive, player }: Props) {
     <div className={styles.z} data-color={color} data-active={isActive}>
       <Image className={styles.bg} src={`/img/bg-${player.number}.jpg`} layout="fill" objectFit="cover" alt="Snooker" />
       <div className={styles.c}></div>
-      <div className={styles.player}>{player.name}</div>
+      <div className={styles.player}>
+        <span style={{ display: 'inline-block', width: '80px' }}>#{player.number}</span>
+        {player.name}
+      </div>
       {children}
     </div>
   )

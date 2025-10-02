@@ -16,6 +16,7 @@ import WakeLock from '@/components/WakeLock/WakeLock'
 import Button from '@/blocs/basic/Button/Button'
 import useAppData from 'templates/_layout/AppContext/useAppData'
 import GameButtons from '../blocs/GameButtons/GameButtons'
+import { vibrate } from '@/utils/basic/vibrate'
 
 type Props = {
   config: ShootoutGameConfig
@@ -30,7 +31,7 @@ enum SOUNDS {
 
 export default function Shootout({ config }: Props) {
   const [isMatchEnded, setIsMatchEnded] = useState(false)
-  const [totalTime, setTotalTime] = useState(config.totalTime)
+  const [totalTime, setTotalTime] = useState(config.totalTime * 60)
   const [localTime, setLocalTime] = useState(config.localTime1)
   const [isLocalPause, setIsLocalPause] = useState(true)
   const [isTotalPause, setIsTotalPause] = useState(true)
@@ -39,7 +40,6 @@ export default function Shootout({ config }: Props) {
   const [currentPlayer, setCurrentPlayer] = useState<ShootoutGamePlayer | undefined>(undefined)
   const [timestamp, setTimestamp] = useState<number | undefined>(undefined)
   const { isMute, setIsGameInProgress, isLoading } = useAppData()
-  const canVibrate = typeof window?.navigator?.vibrate == 'function'
 
   const [player1, setPlayer1] = useState<ShootoutGamePlayer>({
     number: 1,
@@ -64,23 +64,23 @@ export default function Shootout({ config }: Props) {
   function playSound(soundName: SOUNDS) {
     switch (soundName) {
       case SOUNDS.localTimeAlert:
-        if (canVibrate) window?.navigator?.vibrate([200])
         if (!isMute) soundLocalTimeAlert()
+        vibrate([200])
         break
       case SOUNDS.changeMaxtime:
-        if (canVibrate) window?.navigator?.vibrate([200, 100, 200, 100, 200])
         if (!isMute) {
           soundChangeMaxtime()
           setTimeout(() => soundChangeMaxtime(), 200)
+          vibrate([200, 100, 200, 100, 200])
         }
         break
       case SOUNDS.endLocalTime:
-        if (canVibrate) window?.navigator?.vibrate([700, 100, 300])
+        vibrate([700, 100, 300])
         if (!isMute) soundEndLocalTime()
         break
       case SOUNDS.endGame:
-        if (canVibrate) window?.navigator?.vibrate([700, 200, 700, 200, 700])
         if (!isMute) soundEndGame()
+        vibrate([700, 200, 700, 200, 700])
         break
       default:
         break
@@ -169,7 +169,7 @@ export default function Shootout({ config }: Props) {
     const timerTotal = setInterval(() => {
       setTotalTime((prevTime) => prevTime - 0.1)
     }, 100)
-    if (totalTime <= config.totalTimeChangeLocal && maxLocalTime != config.localTime2) {
+    if (totalTime <= config.totalTimeChangeLocal * 60 && maxLocalTime != config.localTime2) {
       playSound(SOUNDS.changeMaxtime)
       setMaxLocalTime(config.localTime2)
     }
@@ -196,7 +196,7 @@ export default function Shootout({ config }: Props) {
   if (isLoading) return <div>Chargement...</div>
   return (
     <div className={styles.shootout}>
-      <div className={styles.gameButtons}>
+      <div className={styles.gBtns} data-swp={!!currentPlayer}>
         <GameButtons
           currentPlayer={currentPlayer}
           localTime={Math.ceil(localTime)}
@@ -256,11 +256,11 @@ export default function Shootout({ config }: Props) {
                 <span className={styles.chrono}>{secondesToMinutes(Math.ceil(totalTime))}</span>
               </RoundedBloc>
             </div>
-            {currentPlayer && (
-              <div className={styles.totalPause} onClick={() => onTotalPause(!isTotalPause)} style={{ marginLeft: -4 }}>
-                {!isTotalPause ? <Pause size="2em" /> : <Play size="2em" />}
-              </div>
-            )}
+
+            <div className={styles.tPause} onClick={() => onTotalPause(!isTotalPause)} style={{ marginLeft: -4 }}>
+              {!isTotalPause ? <Pause size="2em" /> : <Play size="2em" />}
+            </div>
+
             <div className={styles.time} style={{ marginLeft: -4 }}>
               <RoundedBloc isAlert={maxLocalTime == config.localTime2}>
                 <strong>Shot </strong>

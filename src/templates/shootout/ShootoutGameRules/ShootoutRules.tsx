@@ -2,7 +2,8 @@ export default function ShootoutRules() {
   return (
     <>
       <h1>Règles du Shootout</h1>
-      <ul>
+      <br />
+      <ul style={{ paddingLeft: 15 }}>
         <li>Les joueurs effectuent un « lag » pour déterminer celui qui fera la casse.</li>
         <li>Chaque manche dure 10 minutes.</li>
         <li>

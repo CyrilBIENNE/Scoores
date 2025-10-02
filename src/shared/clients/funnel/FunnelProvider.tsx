@@ -13,7 +13,7 @@ export interface FunnelStructure {
   questions: { [key: string]: any }
   lastStep?: string
   expire?: Date
-  lastUrlInitiator?: string
+  version?: string
 }
 
 type Props = {
@@ -21,6 +21,7 @@ type Props = {
     type?: 'sessionStorage' | 'localStorage' | undefined // sessionStorage or localStorage, if empty data reset on page load
     id?: string // only for sessionStorage or localStorage
     expireHour?: number //  only for sessionStorage or localStorage
+    version?: string
   }
   initParams?: { [key: string]: any }
   children: any[] | any
@@ -49,7 +50,7 @@ export const FunnelContext = createContext<FunnelContextData>({
 })
 
 export default function FunnelProvider({ storage: storageConfig, initParams, children }: Props) {
-  const { type, id, expireHour } = storageConfig ?? {}
+  const { type, id, expireHour, version } = storageConfig ?? {}
 
   const [storage, setStorage] = useState<any | undefined>(undefined)
   const expire = expireHour ? new Date(Date.now() + expireHour * 60 * 60 * 1000) : undefined
@@ -70,7 +71,11 @@ export default function FunnelProvider({ storage: storageConfig, initParams, chi
     if (!storage) return
     const storageFunnel = JSON.parse(storage.getItem(storage_name))
     if (!storageFunnel) return setIsLoading(false)
-    setFunnel(new Date() >= new Date(storageFunnel.expire) ? initFunnel(initParams, expire) : storageFunnel)
+    setFunnel(
+      new Date() >= new Date(storageFunnel.expire) || version !== storageFunnel.version
+        ? initFunnel(initParams, expire)
+        : storageFunnel
+    )
     setIsLoading(false)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [storage, storage_name])

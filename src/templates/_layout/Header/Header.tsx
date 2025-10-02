@@ -6,7 +6,7 @@ import LogoIcon from '@/icons/logo-icon'
 import Link from 'next/link'
 import MuteSound from '@/components/MuteSound/MuteSound'
 import HeaderIcon from './components/HeaderIcon/HeaderIcon'
-import { GAME_CONFIGS } from 'configs/configs.type'
+import { GAME_CONFIGS } from 'configs/app.config'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
@@ -32,7 +32,6 @@ export default function Header() {
     if (!isGameInProgress || (isGameInProgress && confirm('Voulez-vous abandonner la partie en cours ?')))
       router.push('/')
   }
-
   useEffect(() => {
     if (!isLoading) setIsHelp(false)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -50,9 +49,14 @@ export default function Header() {
               <Image src="/img/logo.svg" alt="Scoores" width={90} height={42} />
             </div>
           </div>
-          <div className={styles.gTitle}>{currentGame.name}</div>
+          {/* <div className={styles.gTitle}>{currentGame.name}</div> */}
           <div className={styles.icons}>
-            <Link title="Nouvelle partie" href={currentGame.slug} onClick={() => newGame(isGameInProgress)}>
+            <Link
+              title="Nouvelle partie"
+              href={currentGame.slug}
+              onClick={() => newGame(isGameInProgress)}
+              data-yellow={true}
+            >
               <Add size={iconSize} stroke={2} />
             </Link>
             <MuteSound isMute={isMute} size={iconSize} callback={() => setIsMute(!isMute)} />

@@ -4,15 +4,8 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  animation: load8 300ms ease-in-out;
   @media (min-width: $desktop-min-width) {
     margin: 0;
-    .sogudobot {
-      display: none;
-    }
-    .shoppingCart {
-      display: none;
-    }
   }
   &[data-saving='true'] {
     pointer-events: none;

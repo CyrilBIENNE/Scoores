@@ -11,6 +11,11 @@ const nextConfig = {
     additionalData: `@use 'variables' as *;`,
     silenceDeprecations: ['legacy-js-api'],
   },
+  output: 'export',
+  trailingSlash: true,
+  images: {
+    unoptimized: true
+  }
 }
 
 module.exports = nextConfig

@@ -12,17 +12,17 @@
   line-height: 18px;
   transition-duration: 150ms;
   cursor: pointer;
-  border: 1px solid $gray3;
+  border: 1px solid $gray5;
   p {
     width: 100%;
   }
   &:hover {
-    box-shadow: $shadow-middle;
+    box-shadow: $shadow-far;
   }
   &[data-selected='true'] {
     color: var(--color-main);
     border: 1px solid var(--color-main);
-    font-weight: bold;
+    font-weight: $font-weight-bold;
   }
   @media (min-width: $tablet-min-width) {
     width: fit-content;

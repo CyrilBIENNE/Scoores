@@ -5,3 +5,8 @@
   flex-direction: column;
   gap: 36px;
 }
+.svg {
+  line-height: 0;
+  opacity: 0.7;
+  background-blend-mode: multiply;
+}

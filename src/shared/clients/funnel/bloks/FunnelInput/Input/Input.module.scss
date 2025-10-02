@@ -20,22 +20,19 @@
   .label {
     line-height: 20px;
     margin-bottom: -3px;
-    color: $gray5;
+    color: $gray5 !important;
+    font-size: 12px;
   }
   &:not([data-value='']):not([data-type='textarea']) .inputWrapper {
     max-width: calc(100% - 35px);
   }
-  &:not([data-focus='true'][data-value='']) .label {
-    font-size: 12px;
-    color: $gray7;
-  }
   &[data-focus='true'] .label {
     font-size: 12px;
-    color: $gray7;
+    color: $gray7 !important;
   }
   &[data-focus='false'][data-value=''] .label {
     font-size: 14px;
-    color: $gray5;
+    color: $gray5 !important;
   }
   .error {
     font-size: 12px;

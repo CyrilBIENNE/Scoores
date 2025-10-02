@@ -12,7 +12,6 @@ export default function ShootoutGame() {
   const { isLoading: isShootoutloading } = useAppData()
   const [gameConfig, setGameConfig] = useState<ShootoutGameConfig | undefined>(undefined)
   const { setHelpType } = useAppData()
-
   const onEnded = (res: any) => {
     const q = res?.questions
     setGameConfig({
@@ -33,14 +32,13 @@ export default function ShootoutGame() {
   if (isShootoutloading) return <>Loading...</>
 
   return (
-    <>
-      {gameConfig ? (
-        <Shootout config={gameConfig} />
-      ) : (
+    <div style={{ position: 'relative' }}>
+      <div className={styles.f} data-h={gameConfig ? 'true' : undefined}>
         <div className={styles.container}>
           <ShootoutForm onEnded={onEnded} />
         </div>
-      )}
-    </>
+      </div>
+      {gameConfig && <Shootout config={gameConfig} />}
+    </div>
   )
 }

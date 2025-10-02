@@ -4,10 +4,3 @@ export interface AppStructure {
   isMute: boolean
   helpType?: string
 }
-
-export const appConfig: AppStructure = {
-  version: '1.0.0',
-  currentGame: undefined,
-  isMute: false,
-  helpType: undefined,
-}

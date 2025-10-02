@@ -8,7 +8,7 @@
   align-items: center;
   width: 100%;
   padding: 12px 12px;
-  border-top: 1px solid $gray3;
+  border-top: 1px solid $gray5;
   cursor: pointer;
   background-color: white;
   font-size: 14px;
@@ -22,6 +22,6 @@
 
   &:hover {
     color: $color-main;
-    background-color: $gray2;
+    background-color: $color-white;
   }
 }

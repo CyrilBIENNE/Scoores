@@ -8,7 +8,7 @@ export const viewport: Viewport = {
 }
 
 const geistSans = Geist({
-  weight: ['400', '700', '900'],
+  weight: ['500', '600', '700', '900'],
   variable: '--font-geist-sans',
   subsets: ['latin'],
   display: 'swap',
