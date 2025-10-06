@@ -1,8 +1,9 @@
 'use client'
 
 import { createContext, useEffect, useState } from 'react'
-import { appConfig, AppStructure } from './App.type'
+import { AppStructure } from './App.type'
 import { HelpTypes } from '../Header/Help.type'
+import { APP_CONFIG } from 'configs/app.config'
 
 type Props = {
   initParams?: { [key: string]: any }
@@ -71,11 +72,10 @@ const AppProvider = ({ children }: Props) => {
     const tmpStorage = localStorage.getItem(appName)
     const storageApp = tmpStorage ? JSON.parse(tmpStorage) : undefined
     let finalAppData = appData
-
-    if (storageApp?.config) {
+    if (storageApp?.version) {
       finalAppData = storageApp
-      if (finalAppData?.version !== appConfig.version) {
-        finalAppData = appConfig
+      if (finalAppData?.version !== APP_CONFIG.version) {
+        finalAppData = APP_CONFIG
         localStorage.setItem(appName, JSON.stringify(finalAppData))
       }
       setAppData(finalAppData)

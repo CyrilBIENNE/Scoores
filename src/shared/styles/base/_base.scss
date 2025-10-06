@@ -1,8 +1,12 @@
 @use 'variables' as *;
 
+html,
 body {
   background-color: $color-dark;
   overflow-x: hidden;
+  height: 100%;
+  min-height: 100%;
+  position: relative;
 }
 
 .mt-0 {
@@ -35,7 +39,7 @@ body {
 
 hr {
   margin: 12px 0 24px;
-  border-top: 1px solid $gray2;
+  border-top: 1px solid $gray5;
 }
 
 main {

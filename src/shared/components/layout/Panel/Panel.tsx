@@ -10,10 +10,8 @@ type Props = {
 }
 
 export default function Panel({ children, onClose, isOpen }: Props) {
-  if (!isOpen) return <></>
-
   return (
-    <div className={styles.panel}>
+    <div className={styles.panel} data-swp={isOpen ? 'true' : undefined}>
       <div className="container">
         <div className={styles.close} onClick={onClose}>
           <Close size={36} />

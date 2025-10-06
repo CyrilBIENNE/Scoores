@@ -7,9 +7,9 @@
 # Next JS
 .next/
 node_modules/
-
 .DS_Store
 *.DS_Store
+out/
 
 .idea/
 

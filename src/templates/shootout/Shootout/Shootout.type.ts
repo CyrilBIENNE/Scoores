@@ -11,7 +11,7 @@ export type ShootoutGameConfig = {
   totalTime: number
   localTime1: number
   localTime2: number
-  totalTimeChangeLocal: number
+  totalTimeChangeLocal: number // minutes
 }
 
 export interface ShootoutGame {

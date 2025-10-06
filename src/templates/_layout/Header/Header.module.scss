@@ -56,7 +56,6 @@
 .gTitle {
   font-size: 18px;
   color: $color-yellow;
-  font-weight: 500;
   display: none;
   @media screen and (min-width: 280px) {
     display: block;
@@ -80,25 +79,12 @@
   > * {
     cursor: pointer;
   }
-  > *:hover {
+  > *:hover,
+  [data-yellow='true'] {
     color: $color-yellow;
     a {
       color: $color-yellow;
     }
-  }
-}
-.wrapperOld {
-  padding: 24px 24px 0;
-  font-size: 18px;
-  line-height: 24px;
-  color: $blue-2;
-  min-height: 70px;
-  @media (min-width: $tablet-min-width) {
-    padding: 0;
-    display: flex;
-
-    font-size: 16px;
-    line-height: 20px;
   }
 }
 

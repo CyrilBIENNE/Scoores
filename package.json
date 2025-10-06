@@ -1,28 +1,50 @@
 {
-  "name": "Shootout",
-  "version": "0.1.0",
+  "name": "Scoores",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "pnpm install --silent &&next build",
     "start": "next start",
     "lint": "next lint",
-    "clean": "prettier --write ./src"
+    "clean-prettier": "prettier --write ./src",
+
+    "build:app": "pnpm install --silent && cross-env NEXT_PUBLIC_IS_APP=true next build",
+
+    "assets:android": "capacitor-assets generate --android",
+    "assets:ios": "capacitor-assets generate --ios",
+    "assets:all": "capacitor-assets generate",
+
+    "mobile:build": "pnpm build:app && pnpm assets:all && pnpm cap sync",
+    "mobile:copy": "pnpm cap copy",
+    "mobile:sync": "pnpm build:app && pnpm assets:all && pnpm cap sync",
+    "mobile:android": "pnpm mobile:build && pnpm cap open android",
+    "mobile:ios": "pnpm mobile:build && pnpm cap open ios",
+    "mobile:emulate": "pnpm mobile:build && cd android && ./gradlew installDebug && adb shell monkey -p com.scoores.mobile -c android.intent.category.LAUNCHER 1"
   },
   "rules": {
     "react/no-is-mounted": "off"
   },
   "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
+    "@capacitor/haptics": "^7.0.2",
+    "@capacitor/ios": "^7.4.3",
+    "@capacitor/splash-screen": "^7.0.3",
+    "install": "^0.13.0",
     "next": "15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "use-sound": "^5.0.0"
   },
   "devDependencies": {
+    "@capacitor/cli": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
     "postcss": "^8",

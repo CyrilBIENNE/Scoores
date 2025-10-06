@@ -40,7 +40,6 @@
   height: fit-content;
   background-color: $color-white;
   border-radius: 6px;
-  box-shadow: $shadow-very-close;
   padding: 24px;
   min-width: 100vw;
 
@@ -60,7 +59,7 @@
 
 .title {
   color: $blue-8;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
 }
 
 .topbar {

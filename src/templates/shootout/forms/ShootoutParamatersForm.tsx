@@ -5,6 +5,7 @@ import { createContext, useContext, useEffect } from 'react'
 import { useFunnel } from 'shared/clients/funnel/FunnelProvider'
 import { useSearchParams } from 'next/navigation'
 import NewGameForm from './NewGameForm'
+import { shootoutConfig } from '../shootout.config'
 
 export interface ShootoutFormContextData {
   isLoading: boolean
@@ -21,7 +22,7 @@ type Props = {
 
 export default function ShootoutForm({ children, onEnded }: Props) {
   return (
-    <FunnelProvider storage={{ id: `shootout_game`, type: 'localStorage' }}>
+    <FunnelProvider storage={{ id: `shootout_game`, type: 'localStorage', version: shootoutConfig.version }}>
       <ShootoutFormContent onEnded={onEnded}>{children}</ShootoutFormContent>
     </FunnelProvider>
   )

@@ -1,13 +1,22 @@
 .panel {
-  position: fixed;
+  position: absolute;
+  display: block;
+  clear: none;
   z-index: 9;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  padding-top: 24px;
+  padding-top: calc($header-height + 24px);
   top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  transform: translateX(100%);
   background-color: $color-dark;
-  padding: 72px 0 0 0;
   overflow-y: auto;
+  transition: transform 0.3s;
+  box-shadow: $shadow-panel;
+  &[data-swp='true'] {
+    transform: translateX(0);
+  }
 }
 
 .wrapper {

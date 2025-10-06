@@ -1,7 +1,7 @@
 .item {
   width: 100%;
   padding: 12px 24px;
-  color: $gray8;
+  color: $gray7;
   cursor: pointer;
   .name {
     display: flex;
@@ -40,7 +40,6 @@
     }
     .input {
       min-width: 250px;
-      border: 1px solid $gray10;
       border-radius: 4px;
       background-color: $color-white;
 
@@ -59,8 +58,8 @@
       p {
         margin-left: 13px;
         color: $color-main;
-        font-size: 16px;
-        font-weight: bold;
+        font-size: 18px;
+        font-weight: $font-weight-bold;
         text-align: center;
       }
     }
@@ -73,11 +72,11 @@
   }
   &:hover {
     color: var(--color-main);
-    background-color: $blue-10;
+    background-color: $blue-8;
   }
 }
 
 .sublabel {
-  color: $gray6;
+  color: $gray7;
   font-size: 14px;
 }

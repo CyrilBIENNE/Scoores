@@ -5,7 +5,7 @@ export const dynamic = 'force-static'
 
 export async function generateMetadata() {
   return {
-    defaultMetadata,
+    ...defaultMetadata,
     title: 'Shootout',
     description: 'Chronomètre pour Shootout, une variation du jeu de snooker pour les sportifs.',
   }

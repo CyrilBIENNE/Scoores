@@ -1,9 +1,9 @@
-import Link from 'next/link'
 import styles from './Home.module.scss'
 import Play from '@/icons/play'
 import FlameMini from '@/icons/flame-mini'
 import Image from 'next/image'
-import { SITE_VERSION } from 'configs/configs.type'
+import { GAME_CONFIGS, SITE_VERSION } from 'configs/app.config'
+import LinkSmart from 'components/LinkSmart/LinkSmart'
 
 export default function Home() {
   return (
@@ -16,10 +16,10 @@ export default function Home() {
         </div>
         <ul>
           <li>
-            <Link className={styles.app} href={'/shootout'} title="Shootout!">
+            <LinkSmart className={styles.app} href={GAME_CONFIGS.shootout.slug} title="Shootout!">
               <Play size="40" />
-              <span>Play Shootout</span>
-            </Link>
+              <span style={{ fontWeight: 400 }}>Play Shootout</span>
+            </LinkSmart>
           </li>
         </ul>
         <div className={styles.footer}>

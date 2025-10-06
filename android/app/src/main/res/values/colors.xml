@@ -1,0 +1,8 @@
+<resources>
+    <color name="splash_background">#333333</color>
+
+    <!-- Couleurs du thème principal -->
+    <color name="primary">#3880FF</color>
+    <color name="primary_dark">#333333</color>
+    <color name="accent">#3DC2FF</color>
+</resources>
