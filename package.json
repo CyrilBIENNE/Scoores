@@ -8,13 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "clean-prettier": "prettier --write ./src",
-
     "build:app": "pnpm install --silent && cross-env NEXT_PUBLIC_IS_APP=true next build",
-
     "assets:android": "capacitor-assets generate --android",
     "assets:ios": "capacitor-assets generate --ios",
     "assets:all": "capacitor-assets generate",
-
     "mobile:build": "pnpm build:app && pnpm assets:all && pnpm cap sync",
     "mobile:copy": "pnpm cap copy",
     "mobile:sync": "pnpm build:app && pnpm assets:all && pnpm cap sync",
@@ -32,9 +29,9 @@
     "@capacitor/ios": "^7.4.3",
     "@capacitor/splash-screen": "^7.0.3",
     "install": "^0.13.0",
-    "next": "15.1.7",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "next": "15.5.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "use-sound": "^5.0.0"
   },
   "devDependencies": {
@@ -46,7 +43,7 @@
     "@types/react-dom": "^19",
     "cross-env": "^10.1.0",
     "eslint": "^9",
-    "eslint-config-next": "15.1.7",
+    "eslint-config-next": "15.5.4",
     "postcss": "^8",
     "sass": "^1.85.1",
     "tailwindcss": "^3.4.1",
