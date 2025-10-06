@@ -9,6 +9,12 @@ body {
   position: relative;
 }
 
+.xs-z80 {
+  zoom: 80%;
+  @media screen and (min-width: 360px) {
+    zoom: inherit;
+  }
+}
 .mt-0 {
   margin-top: 0;
 }

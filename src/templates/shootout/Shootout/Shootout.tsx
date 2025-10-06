@@ -196,7 +196,7 @@ export default function Shootout({ config }: Props) {
   if (isLoading) return <div>Chargement...</div>
   return (
     <div className={styles.shootout}>
-      <div className={styles.gBtns} data-swp={!!currentPlayer}>
+      <div className={styles.gBtns + ' xs-z80'} data-swp={!!currentPlayer}>
         <GameButtons
           currentPlayer={currentPlayer}
           localTime={Math.ceil(localTime)}
@@ -247,7 +247,7 @@ export default function Shootout({ config }: Props) {
         </Zone>
       </div>
 
-      <div className={styles.middle} data-running={!!currentPlayer}>
+      <div className={styles.middle + ' xs-z80'} data-running={!!currentPlayer}>
         {!isMatchEnded ? (
           <>
             <WakeLock />
