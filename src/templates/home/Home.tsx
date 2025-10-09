@@ -1,9 +1,11 @@
 import styles from './Home.module.scss'
 import Play from '@/icons/play'
+import Android from '@/icons/android-logo'
 import FlameMini from '@/icons/flame-mini'
 import Image from 'next/image'
 import { GAME_CONFIGS, SITE_VERSION } from 'configs/app.config'
 import LinkSmart from 'components/LinkSmart/LinkSmart'
+import { isNativePlatform } from '@/utils/basic/isNativePlatform'
 
 export default function Home() {
   return (
@@ -23,11 +25,26 @@ export default function Home() {
           </li>
         </ul>
         <div className={styles.footer}>
-          <div>
-            P<strong style={{ fontWeight: 900, opacity: 0.4 }}>o</strong>wered by
+          <div className={styles.sign}>
+            <div>
+              P<strong style={{ fontWeight: 900, opacity: 0.4 }}>o</strong>wered by
+            </div>
+            <FlameMini />
+            <div>Cyril</div>
           </div>
-          <FlameMini />
-          <div>Cyril</div>
+          {!isNativePlatform() && (
+            <div className={styles.dl}>
+              <div>
+                <a
+                  href="/apps/release/app-release.apk"
+                  download="Scoores.apk"
+                  title="Télécharger l'application Android"
+                >
+                  <Android size={32} />
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
