@@ -1,7 +1,7 @@
 import styles from './Input.module.scss'
 
 import { useState, useEffect } from 'react'
-import Close from '@/icons/close'
+import Close from '@/icons/closed'
 
 type Props = {
   value: string

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "pnpm install --silent && rm -Rf .next && next build",
+    "build": "pnpm install --silent && next build",
     "start": "next start",
     "lint": "next lint",
     "clean-prettier": "prettier --write ./src",
