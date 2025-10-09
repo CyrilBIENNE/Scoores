@@ -5,7 +5,7 @@ type Props = {
   size?: number
 }
 
-export default function Close(props: Props) {
+export default function Icon(props: Props) {
   const { size, color, onClick } = props
   const attributes: any = {}
   if (onClick) attributes['onClick'] = onClick
