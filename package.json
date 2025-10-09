@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "clean-prettier": "prettier --write ./src",
-    "build:app": "pnpm install --silent && cross-env NEXT_PUBLIC_IS_APP=true next build",
+    "build:app": "pnpm install --silent && cross-env NEXT_PUBLIC_IS_APP=true next build && rm -Rf out/apps",
     "assets:android": "capacitor-assets generate --android",
     "assets:ios": "capacitor-assets generate --ios",
     "assets:all": "capacitor-assets generate",

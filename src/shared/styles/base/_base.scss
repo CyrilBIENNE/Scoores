@@ -48,26 +48,13 @@ hr {
   border-top: 1px solid $gray5;
 }
 
-main {
-  min-height: calc(100vh - $header-height);
-  @media (min-width: $header-height-mobile) {
-    min-height: calc(100vh - 70px);
-  }
-}
-
-.content {
-  max-width: 100%;
-  position: relative;
-  padding: 24px 12px;
-
-  @media (min-width: $tablet-min-width) {
-    padding: 24px;
-  }
-
-  @media (min-width: $desktop-min-width) {
-    max-width: 1008px;
-    margin: 0 auto;
-  }
+.note {
+  display: block;
+  text-align: center;
+  border-bottom: solid 1px $gray5;
+  font-size: 14px;
+  color: $gray5;
+  margin-top: 6px;
 }
 
 .table {
