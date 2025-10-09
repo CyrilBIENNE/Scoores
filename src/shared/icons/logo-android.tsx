@@ -1,4 +1,4 @@
-export default function Icon({ size, color, borderColor }: any) {
+export default function Icon({ size, color }: any) {
   return (
     <svg
       viewBox="42.544 -.671 467.96 553.72"

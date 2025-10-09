@@ -1,5 +1,16 @@
 // @ts-check
 const path = require('path')
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === 'development', // désactive le service worker en dev
+})
+
+module.exports = withPWA({
+  reactStrictMode: true,
+})
+
 /**
  * @type {import('next').NextConfig}
  **/

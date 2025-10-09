@@ -2,7 +2,7 @@ import styles from './FunnelSelect.module.scss'
 
 import OutSideDiv from 'shared/components/layout/OutSideDiv/OutSideDiv'
 import Input from '../FunnelInput/Input/Input'
-import Close from '@/icons/Close'
+import Close from '@/icons/close'
 import Search from '@/icons/search'
 import ArrowRight from '@/icons/arrow-right'
 
