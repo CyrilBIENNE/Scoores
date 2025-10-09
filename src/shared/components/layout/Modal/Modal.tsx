@@ -2,7 +2,7 @@
 
 import styles from './Modal.module.scss'
 
-import Close from '@/icons/Close'
+import Close from '@/icons/close'
 import OutSideDiv from '../OutSideDiv/OutSideDiv'
 import { createPortal } from 'react-dom'
 

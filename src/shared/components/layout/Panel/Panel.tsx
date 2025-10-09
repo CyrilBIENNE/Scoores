@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './Panel.module.scss'
-import Close from '@/icons/Close'
+import Close from '@/icons/close'
 
 type Props = {
   children: any
