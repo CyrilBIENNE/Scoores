@@ -1,7 +1,6 @@
 import styles from './Home.module.scss'
 import Play from '@/icons/play'
 import Android from '@/icons/logo-android'
-import Ios from '@/icons/logo-ios'
 import FlameMini from '@/icons/flame-mini'
 import Image from 'next/image'
 import { GAME_CONFIGS, SITE_VERSION } from 'configs/app.config'
