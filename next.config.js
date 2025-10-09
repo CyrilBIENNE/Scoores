@@ -1,12 +1,31 @@
 // @ts-check
 const path = require('path')
-const runtimeCaching = require('next-pwa/cache')
+//const runtimeCaching = require('next-pwa/cache')
 
 // compatibilité ESM/CommonJS
 const createPWA = require('next-pwa').default || require('next-pwa')
 
 const isApp = process.env.NEXT_PUBLIC_IS_APP === 'true'
 const isDev = process.env.NODE_ENV === 'development'
+
+const runtimeCaching = [
+  {
+    urlPattern: /^https:\/\/scoores.*\.vercel\.app\/?$/,
+    handler: 'NetworkFirst',
+    options: {
+      cacheName: 'pages-cache',
+      expiration: { maxEntries: 20 },
+    },
+  },
+  {
+    urlPattern: /^https?.*/,
+    handler: 'StaleWhileRevalidate',
+    options: {
+      cacheName: 'default-cache',
+      expiration: { maxEntries: 100 },
+    },
+  },
+]
 
 const withPWA = createPWA({
   dest: 'public',             // met les fichiers dans /public (accessible depuis le SSR)
