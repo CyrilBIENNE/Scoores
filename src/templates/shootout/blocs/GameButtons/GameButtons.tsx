@@ -57,7 +57,7 @@ export default function GameButtons({
         size="lg"
         status={localTime == 0 ? 'ended' : isLocalPause ? 'paused' : 'running'}
         callback={() => {
-          if (localTime > 0) vibrate(isLocalPause ? [300, 100, 100] : [400])
+          if (localTime > 0) vibrate(isLocalPause ? [300, 100, 150] : [400])
           // eslint-disable-next-line
           localTime > 0 ? setIsLocalPause(!isLocalPause) : null
         }}

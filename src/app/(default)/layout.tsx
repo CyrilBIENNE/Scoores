@@ -2,6 +2,7 @@ import 'shared/styles/app.scss'
 import { Geist } from 'next/font/google'
 import type { Viewport } from 'next'
 import AppProvider from 'templates/_layout/AppContext/AppContext'
+import Head from 'templates/_layout/Head/Head'
 
 export const viewport: Viewport = {
   themeColor: '#93733a',
@@ -21,14 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={geistSans.className}>
-      <head>
-        <link rel="manifest" href="/custom-manifest.json" />
-        <link rel="apple-touch-icon" href="/icons/apple-icon.png" />
-        <meta name="theme-color" content="#333333" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Scoores" />
-      </head>
+      <Head />
       <body>
         <AppProvider>{children}</AppProvider>
       </body>
