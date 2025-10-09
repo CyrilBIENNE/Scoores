@@ -1,10 +1,13 @@
 // @ts-check
 const path = require('path')
+const runtimeCaching = require('next-pwa/cache')
+
 const withPWA = require('next-pwa')({
   dest: 'public',
+  runtimeCaching,
   register: true,
   skipWaiting: true,
-  disable: process.env.NODE_ENV === 'development', // désactive le service worker en dev
+  disable: process.env.NODE_ENV === 'development'
 })
 
 module.exports = withPWA({
