@@ -7,8 +7,9 @@
     "build": "pnpm install --silent && rm -Rf .next && next build",
     "start": "next start",
     "lint": "next lint",
+    "postcap:sync": "node scripts/convert-webp-to-png.js",
     "clean-prettier": "prettier --write ./src",
-    "build:app": "pnpm install --silent && cross-env NEXT_PUBLIC_IS_APP=true next build && rm -Rf out/apps",
+    "build:app": "pnpm install --silent && pnpm postcap:sync && cross-env NEXT_PUBLIC_IS_APP=true next build && rm -Rf out/apps",
     "assets:android": "capacitor-assets generate --android",
     "assets:ios": "capacitor-assets generate --ios",
     "assets:all": "capacitor-assets generate",
@@ -33,6 +34,7 @@
     "next-pwa": "^5.6.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "sharp": "^0.34.4",
     "use-sound": "^5.0.0"
   },
   "devDependencies": {

@@ -22,9 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={geistSans.className}>
       <head>
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="/favicons/icon-192x192.png" />
-        <meta name="theme-color" content="#f333333" />
+        <link rel="manifest" href="/custom-manifest.json" />
+        <link rel="apple-touch-icon" href="/icons/apple-icon.png" />
+        <meta name="theme-color" content="#333333" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Scoores" />
