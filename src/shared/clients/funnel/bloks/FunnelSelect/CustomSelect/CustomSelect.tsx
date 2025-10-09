@@ -4,7 +4,7 @@ import stylesFunnel from '../FunnelSelect.module.scss'
 import styles from './CustomSelect.module.scss'
 import stylesInput from '../../FunnelInput/Input/Input.module.scss'
 import stylesFunnelInput from '../../FunnelInput/FunnelInput.module.scss'
-import Close from '@/icons/close'
+import Close from '@/icons/closed'
 import useFunnelKey from 'shared/clients/funnel/hooks/useFunnelKey'
 
 type jsonType = {
