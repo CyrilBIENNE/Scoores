@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Geist } from 'next/font/google'
 import Header from '../../templates/_layout/Header/Header'
 import AppProvider from 'templates/_layout/AppContext/AppContext'
+import Head from 'templates/_layout/Head/Head'
 
 const geistSans = Geist({
   weight: ['400', '500', '600', '700', '900'],
@@ -26,14 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={geistSans.className}>
-      <head>
-        <link rel="manifest" href="/custom-manifest.json" />
-        <link rel="apple-touch-icon" href="/icons/apple-icon.png" />
-        <meta name="theme-color" content="#333333" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Scoores" />
-      </head>
+      <Head />
       <body>
         <AppProvider>
           <Header />
