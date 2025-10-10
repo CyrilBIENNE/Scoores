@@ -3,6 +3,7 @@ import { Geist } from 'next/font/google'
 import type { Viewport } from 'next'
 import AppProvider from 'templates/_layout/AppContext/AppContext'
 import Head from 'templates/_layout/Head/Head'
+import RegisterSW from 'app/RegisterSW'
 
 export const viewport: Viewport = {
   themeColor: '#93733a',
@@ -21,10 +22,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={geistSans.className}>
+    <html lang="fr" className={geistSans.className}>
       <Head />
       <body>
         <AppProvider>{children}</AppProvider>
+        <RegisterSW />
       </body>
     </html>
   )

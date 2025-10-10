@@ -4,6 +4,7 @@ import { Geist } from 'next/font/google'
 import Header from '../../templates/_layout/Header/Header'
 import AppProvider from 'templates/_layout/AppContext/AppContext'
 import Head from 'templates/_layout/Head/Head'
+import RegisterSW from 'app/RegisterSW'
 
 const geistSans = Geist({
   weight: ['400', '500', '600', '700', '900'],
@@ -33,6 +34,7 @@ export default function RootLayout({
           <Header />
           {children}
         </AppProvider>
+        <RegisterSW />
       </body>
     </html>
   )
