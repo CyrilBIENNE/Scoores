@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scoores – Hors connexion</title>
+    <link rel="icon" href="/icons/icon-192.png" />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        background: #333;
+        color: #fff;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+      }
+      img {
+        width: 96px;
+        opacity: 0.8;
+        margin-bottom: 1rem;
+      }
+      button {
+        background: #2563eb;
+        border: none;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 10px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="/icons/icon-192.png" alt="Scoores" />
+    <h2>😕 Vous êtes hors connexion</h2>
+    <p>Essayez de rétablir votre connexion pour continuer à suivre les scores.</p>
+    <button onclick="location.reload()">Réessayer</button>
+  </body>
+</html>
