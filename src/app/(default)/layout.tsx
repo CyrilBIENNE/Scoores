@@ -25,8 +25,8 @@ export default function RootLayout({
     <html lang="fr" className={geistSans.className}>
       <Head />
       <body>
-        <AppProvider>{children}</AppProvider>
         <RegisterSW />
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
   )
