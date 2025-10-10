@@ -9,14 +9,11 @@ export default function RegisterSW() {
         navigator.serviceWorker
           .register('/sw.js')
           .then((reg) => {
-            console.log('✅ Service worker enregistré :', reg.scope)
-
             // 🔁 Forcer l'activation immédiate du nouveau SW
             if (reg.waiting) {
               reg.waiting.postMessage({ type: 'SKIP_WAITING' })
               console.log('♻️ Nouveau SW activé immédiatement')
             }
-
             // Écoute quand un nouveau SW est prêt
             reg.addEventListener('updatefound', () => {
               const newWorker = reg.installing

@@ -35,11 +35,7 @@ export default function Home() {
           {!isNativePlatform() && (
             <div className={styles.dl}>
               <div>
-                <a
-                  href="/apps/release/app-release.apk"
-                  download="Scoores.apk"
-                  title="Télécharger l'application Android"
-                >
+                <a href="/apps/release/scoores.apk" download="Scoores.apk" title="Télécharger l'application Android">
                   <Android size={32} />
                 </a>
               </div>
