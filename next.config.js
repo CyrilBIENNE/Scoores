@@ -58,10 +58,20 @@ const withPWA = createPWA({
   skipWaiting: true,
   runtimeCaching,
   disable: isDev,
-  buildExcludes: [/middleware-manifest\.json$/],
+  buildExcludes: [
+    /app-build-manifest\.json$/,
+    /build-manifest\.json$/,
+    /react-loadable-manifest\.json$/,
+    /prerender-manifest\.json$/,
+    /middleware-manifest\.json$/
+  ],
   fallbacks: {
     document: '/offline.html', // fallback offline
   },
+  additionalManifestEntries: [
+    { url: '/shootout', revision: null },
+    { url: '/offline.html', revision: null },
+  ],
 })
 
 const baseConfig = {
