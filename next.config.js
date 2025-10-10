@@ -40,7 +40,7 @@ const runtimeCaching = [
     },
   },
   {
-    urlPattern: /^https?.*\.(png|jpg|jpeg|svg|gif|webp|ico|woff2|css|js)$/,
+    urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp|ico|woff2|woff|ttf|css|js)$/,
     handler: 'CacheFirst',
     options: {
       cacheName: 'assets-cache',
@@ -67,7 +67,7 @@ const withPWA = createPWA({
     document: '/offline.html', // fallback offline
   },
   additionalManifestEntries: [
-    { url: '/shootout', revision: null },
+    { url: '/shootout/', revision: null },
     { url: '/offline.html', revision: null },
   ],
 })

@@ -1,6 +1,6 @@
 import { AppStructure } from 'templates/_layout/AppContext/App.type'
 
-export const SITE_VERSION = '1.0.5'
+export const SITE_VERSION = '1.0.51'
 export const APP_VERSION = '1.0.5'
 
 export const APP_CONFIG: AppStructure = {
