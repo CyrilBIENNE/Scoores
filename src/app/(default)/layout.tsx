@@ -5,6 +5,8 @@ import AppProvider from 'templates/_layout/AppContext/AppContext'
 import Head from 'templates/_layout/Head/Head'
 import RegisterSW from 'app/RegisterSW'
 
+export const dynamic = 'force-static'
+
 export const viewport: Viewport = {
   themeColor: '#93733a',
 }

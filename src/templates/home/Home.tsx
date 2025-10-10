@@ -13,7 +13,9 @@ export default function Home() {
       <div className="flex-column">
         <div className="flex" style={{ gap: 0 }}>
           <div style={{ width: 32 }}></div>
-          <Image src="/img/logo.svg" alt="Scoores" width={206} height={94} />
+          <div>
+            <Image src="/img/logo.svg" alt="Scoores" width={206} height={94} priority={true} />
+          </div>
           <div style={{ width: 32, color: '#fff', opacity: 0.3, fontSize: 12, paddingTop: 10 }}>v{SITE_VERSION}</div>
         </div>
         <ul>

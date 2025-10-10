@@ -11,7 +11,7 @@ if (fs.existsSync(dir)) {
       sharp(input)
         .toFormat('png')
         .toFile(output)
-        .then(() => console.log(`✅ ${file} → ${output} → ${output}`))
+        .then(() => console.info(`✅ ${file} → ${output} → ${output}`))
         .catch(console.error)
     }
   })
