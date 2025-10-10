@@ -30,18 +30,16 @@ const isDev = process.env.NODE_ENV === 'development'
 // -- cache configuré manuellement pour documents + assets --
 const runtimeCaching = [
   {
-    // pages HTML exportées
     urlPattern: ({ request }) => request.mode === 'navigate',
     handler: 'NetworkFirst',
     options: {
       cacheName: 'html-cache',
       networkTimeoutSeconds: 3,
-      expiration: { maxEntries: 20, maxAgeSeconds: 7 * 24 * 60 * 60 },
+      expiration: { maxEntries: 50, maxAgeSeconds: 7 * 24 * 60 * 60 },
       cacheableResponse: { statuses: [0, 200] },
     },
   },
   {
-    // Assets (JS, CSS, images)
     urlPattern: /^https?.*\.(png|jpg|jpeg|svg|gif|webp|ico|woff2|css|js)$/,
     handler: 'CacheFirst',
     options: {
