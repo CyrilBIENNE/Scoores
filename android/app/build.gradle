@@ -63,3 +63,18 @@ try {
 } catch(Exception e) {
     logger.info("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
 }
+
+android.applicationVariants.all { variant ->
+    variant.outputs.all { output ->
+        def appName = "scoores"
+        def buildType = variant.buildType.name
+        def versionName = variant.versionName
+        def versionCode = variant.versionCode
+
+        // Exemple : scoores-1.0.0-release.apk
+        def newApkName = "${appName}.apk"
+
+        // Affecter le nouveau nom de fichier
+        output.outputFileName = newApkName
+    }
+}

@@ -31,7 +31,7 @@ export const defaultMetadata = {
     other: [
       {
         rel: 'icon',
-        url: '/favicons/favicon.ico',
+        url: '/favicon.ico',
         sizes: '32x32',
       },
       {
@@ -45,5 +45,5 @@ export const defaultMetadata = {
       },
     ],
   },
-  manifest: '/favicons/site.webmanifest',
+  manifest: '/site.webmanifest',
 }

@@ -13,4 +13,4 @@ for (const file of [...filesToCopy, ...workboxFiles]) {
   if (fs.existsSync(src)) fs.copyFileSync(src, dest)
 }
 
-console.log("✅ PWA files copied to out/")
+console.info("✅ PWA files copied to out/")

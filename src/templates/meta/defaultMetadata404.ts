@@ -17,5 +17,5 @@ export const defaultMetadata404 = {
     locale: 'fr_FR',
     type: 'website',
   },
-  manifest: '/favicons/site.webmanifest',
+  manifest: '/site.webmanifest',
 }
