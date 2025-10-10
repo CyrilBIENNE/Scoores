@@ -10,30 +10,42 @@ const isDev = process.env.NODE_ENV === 'development'
 
 const runtimeCaching = [
   {
-    urlPattern: /^https:\/\/scoores.*\.vercel\.app\/?$/,
+    urlPattern: /^https?.*\/$/, // pages
     handler: 'NetworkFirst',
     options: {
       cacheName: 'pages-cache',
-      expiration: { maxEntries: 20 },
+      expiration: { maxEntries: 20, maxAgeSeconds: 7 * 24 * 60 * 60 },
     },
   },
   {
-    urlPattern: /^https?.*/,
-    handler: 'StaleWhileRevalidate',
+    urlPattern: /^https?.*\/api\/.*$/, // appels API
+    handler: 'NetworkFirst',
     options: {
-      cacheName: 'default-cache',
-      expiration: { maxEntries: 100 },
+      cacheName: 'api-cache',
+      networkTimeoutSeconds: 5,
+      expiration: { maxEntries: 30, maxAgeSeconds: 24 * 60 * 60 },
+    },
+  },
+  {
+    urlPattern: /^https?.*\.(png|jpg|jpeg|svg|gif|webp|ico|woff2|css|js)$/,
+    handler: 'CacheFirst',
+    options: {
+      cacheName: 'assets-cache',
+      expiration: { maxEntries: 100, maxAgeSeconds: 30 * 24 * 60 * 60 },
     },
   },
 ]
 
 const withPWA = createPWA({
-  dest: 'public',             // met les fichiers dans /public (accessible depuis le SSR)
-  register: true,             // injecte le script d'enregistrement du SW
+  dest: 'public',
+  register: true,
   skipWaiting: true,
   runtimeCaching,
-  disable: isDev,             // désactive uniquement en développement
+  disable: isDev,
   buildExcludes: [/middleware-manifest\.json$/],
+  fallbacks: {
+    document: '/offline.html', // page de secours
+  },
 })
 
 /** @type {import('next').NextConfig} */
@@ -44,9 +56,9 @@ const baseConfig = {
     additionalData: `@use 'variables' as *;`,
     silenceDeprecations: ['legacy-js-api'],
   },
-  output: isApp ? 'export' : 'standalone', // SSR quand NEXT_PUBLIC_IS_APP n’est pas défini
+  output: isApp ? 'export' : undefined,
   trailingSlash: true,
-  images: { unoptimized: true }
+  images: { unoptimized: true },
 }
 
 module.exports = withPWA(baseConfig)
