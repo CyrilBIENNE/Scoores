@@ -6,7 +6,6 @@
     "dev": "next dev --turbopack",
     "build": "pnpm install --silent && rm -Rf .next && next build",
     "start": "next start",
-    "preview": "npx serve out --ssl-cert ~/localhost.pem --ssl-key ~/localhost-key.pem",
     "lint": "next lint",
     "postcap:sync": "node scripts/convert-webp-to-png.js",
     "clean-prettier": "prettier --write ./src",
